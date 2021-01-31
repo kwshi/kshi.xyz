@@ -1,5 +1,0 @@
-<script lang='ts'>
-  export let x: number;
-</script>
-
-hi: {x}
