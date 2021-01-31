@@ -29,9 +29,10 @@ const preprocess = [
     rehypePlugins: [rehypeKatex],
     frontmatter: {
       marker: "+",
+      type: "toml",
       parse(frontmatter, messages) {
         try {
-          return toml.parse(frontmatter);
+          return Toml.parse(frontmatter);
         } catch (e) {
           messages.push(
             `Parsing error on line ${e.line}, column ${e.column}: ${e.message}`
