@@ -17,6 +17,7 @@ import Toml from "toml";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import remarkGithub from "remark-github";
+import remarkFootnotes from "remark-footnotes";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -25,7 +26,7 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 const extensions = [".svelte", ".svx"];
 const preprocess = [
   Svx.mdsvex({
-    remarkPlugins: [remarkGithub, remarkMath],
+    remarkPlugins: [remarkGithub, remarkMath, remarkFootnotes],
     rehypePlugins: [rehypeKatex],
     frontmatter: {
       marker: "+",

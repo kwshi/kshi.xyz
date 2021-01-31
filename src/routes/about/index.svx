@@ -1,0 +1,19 @@
+<script>
+
+// because i can :)
+const now = new Date();
+const year = now.getFullYear();
+const birthday = new Date(year, 8, 13);
+const age = year - 1998 - (now < birthday);
+
+</script>
+
+Hi there!  I'm Kye (he/him/his), and here are some fast facts about me:
+
+- I'm a {age}-year old college student currently studying Math &amp; Computer
+  Science at Harvey Mudd College.
+
+- Nerdy things I like: math, CS/programming, physics, engineering.  
+
+- Less nerdy things I like: teaching, drumming, puzzle hunts, the Marvel
+  Cinematic Universe, Minecraft, cooking, ballroom dancing.

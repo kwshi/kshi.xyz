@@ -32,9 +32,10 @@ devDependencies:
   prettier-plugin-svelte: 2.1.1_prettier@2.2.1+svelte@3.32.1
   rehype-katex: 4.0.0
   remark: 13.0.0
+  remark-footnotes: 2.0.0
   remark-frontmatter: 3.0.0
   remark-github: 10.0.1
-  remark-math: 4.0.0
+  remark-math: 3.0.1
   rollup: 2.38.2
   rollup-plugin-svelte: 7.1.0_rollup@2.38.2+svelte@3.32.1
   rollup-plugin-terser: 7.0.2_rollup@2.38.2
@@ -2407,14 +2408,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-FHKL4w4S5fdt1KjJCwB0178WJ0evnyyQr5kXTM3wrOVpytD0hrkvd+AOOjU9Td8onOejCkmZ+HQRT3CZ3coHHQ==
-  /mdast-util-math/0.1.2:
-    dependencies:
-      longest-streak: 2.0.4
-      mdast-util-to-markdown: 0.6.2
-      repeat-string: 1.6.1
-    dev: true
-    resolution:
-      integrity: sha512-fogAitds+wH+QRas78Yr1TwmQGN4cW/G2WRw5ePuNoJbBSPJCxIOCE8MTzHgWHVSpgkRaPQTgfzXRE1CrwWSlg==
   /mdast-util-to-markdown/0.6.2:
     dependencies:
       '@types/unist': 2.0.3
@@ -2467,13 +2460,6 @@ packages:
     dev: true
     resolution:
       integrity: sha512-q6nPLFCMTLtfsctAuS0Xh4vaolxSFUWUWR6PZSrXXiRy+SANGllpcqdXFv2z07l0Xz/6Hl40hK0ffNCJPH2n1A==
-  /micromark-extension-math/0.1.2:
-    dependencies:
-      katex: 0.12.0
-      micromark: 2.11.2
-    dev: true
-    resolution:
-      integrity: sha512-ZJXsT2eVPM8VTmcw0CPSDeyonOn9SziGK3Z+nkf9Vb6xMPeU+4JMEnO6vzDL10562Favw8Vste74f54rxJ/i6Q==
   /micromark/2.11.2:
     dependencies:
       debug: 4.3.1
@@ -3051,6 +3037,10 @@ packages:
       node: '>= 0.10'
     resolution:
       integrity: sha1-VNvzd+UUQKypCkzSdGANP/LYiKk=
+  /remark-footnotes/2.0.0:
+    dev: true
+    resolution:
+      integrity: sha512-3Clt8ZMH75Ayjp9q4CorNeyjwIxHFcTkaektplKGl2A1jNGEUey8cKL0ZC5vJwfcD5GFGsNLImLG/NGzWIzoMQ==
   /remark-frontmatter/3.0.0:
     dependencies:
       mdast-util-frontmatter: 0.2.0
@@ -3066,13 +3056,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-iPF467c+bs4vi+vFyDjZCLlKNmHbWF5uo6IIILsHMbbP3dEqsI+m40zMmxY978Z2dUdl6YKiyf07uZad9bFMmw==
-  /remark-math/4.0.0:
-    dependencies:
-      mdast-util-math: 0.1.2
-      micromark-extension-math: 0.1.2
+  /remark-math/3.0.1:
     dev: true
     resolution:
-      integrity: sha512-lH7SoQenXtQrvL0bm+mjZbvOk//YWNuyR+MxV18Qyv8rgFmMEGNuB0TSCQDkoDaiJ40FCnG8lxErc/zhcedYbw==
+      integrity: sha512-epT77R/HK0x7NqrWHdSV75uNLwn8g9qTyMqCRCDujL0vj/6T6+yhdrR7mjELWtkse+Fw02kijAaBuVcHBor1+Q==
   /remark-parse/9.0.0:
     dependencies:
       mdast-util-from-markdown: 0.8.4
@@ -3804,9 +3791,10 @@ specifiers:
   prettier-plugin-svelte: ^2.1.1
   rehype-katex: ^4.0.0
   remark: '13'
+  remark-footnotes: '2'
   remark-frontmatter: '3'
   remark-github: ^10.0.1
-  remark-math: '4'
+  remark-math: '3'
   rollup: ^2.3.4
   rollup-plugin-svelte: ^7.1.0
   rollup-plugin-terser: ^7.0.0
