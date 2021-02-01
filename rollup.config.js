@@ -1,12 +1,15 @@
 import path from "path";
+
 import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
+import rollupGlob from "rollup-plugin-glob";
 import url from "@rollup/plugin-url";
 import svelte from "rollup-plugin-svelte";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
+
 import * as SvPre from "svelte-preprocess";
 import * as Svx from "mdsvex";
 import typescript from "@rollup/plugin-typescript";
@@ -110,6 +113,7 @@ export default {
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
+      rollupGlob(),
 
       legacy &&
         babel({
@@ -182,6 +186,7 @@ export default {
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
+      rollupGlob(),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require("module").builtinModules
