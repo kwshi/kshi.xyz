@@ -14,10 +14,17 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import Toml from "toml";
 
+// TODO:
+
+// - custom remark/rehype plugin to render AS RAW HTML and with custom macros
+// - plugin to generate TOC as sidebar
 import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
 import remarkGithub from "remark-github";
 import remarkFootnotes from "remark-footnotes";
+import remarkToc from "remark-toc";
+import remarkSlug from "remark-slug";
+import rehypeKatex from "rehype-katex";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -26,8 +33,17 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 const extensions = [".svelte", ".svx"];
 const preprocess = [
   Svx.mdsvex({
-    remarkPlugins: [remarkGithub, remarkMath, remarkFootnotes],
-    rehypePlugins: [rehypeKatex],
+    smartypants: {
+      dashes: "oldschool",
+    },
+    remarkPlugins: [
+      remarkGithub,
+      remarkMath,
+      remarkFootnotes,
+      [remarkToc, { tight: true }],
+      remarkSlug,
+    ],
+    rehypePlugins: [rehypeKatex, rehypeAutolinkHeadings],
     frontmatter: {
       marker: "+",
       type: "toml",
