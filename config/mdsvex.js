@@ -6,7 +6,7 @@ import remarkFootnotes from "remark-footnotes";
 import remarkToc from "remark-toc";
 import remarkSlug from "remark-slug";
 import remarkEmoji from "remark-emoji";
-import rehypeKatex from "rehype-katex";
+//import rehypeKatex from "rehype-katex";
 import rehypeKatexSvelte from "rehype-katex-svelte";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";

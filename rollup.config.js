@@ -14,7 +14,7 @@ import * as SvPre from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
-import Toml from "toml";
+//import Toml from "toml";
 
 import mdsvex from "./config/mdsvex";
 
