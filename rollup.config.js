@@ -1,4 +1,4 @@
-import path from "path";
+import * as Path from "path";
 
 import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
@@ -11,23 +11,12 @@ import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 
 import * as SvPre from "svelte-preprocess";
-import * as Svx from "mdsvex";
 import typescript from "@rollup/plugin-typescript";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 import Toml from "toml";
 
-// TODO:
-
-// - custom remark/rehype plugin to render AS RAW HTML and with custom macros
-// - plugin to generate TOC as sidebar
-import remarkMath from "remark-math";
-import remarkGithub from "remark-github";
-import remarkFootnotes from "remark-footnotes";
-import remarkToc from "remark-toc";
-import remarkSlug from "remark-slug";
-import rehypeKatex from "rehype-katex";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import mdsvex from "./config/mdsvex";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -35,32 +24,7 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const extensions = [".svelte", ".svx"];
 const preprocess = [
-  Svx.mdsvex({
-    smartypants: {
-      dashes: "oldschool",
-    },
-    remarkPlugins: [
-      remarkGithub,
-      remarkMath,
-      remarkFootnotes,
-      [remarkToc, { tight: true }],
-      remarkSlug,
-    ],
-    rehypePlugins: [rehypeKatex, rehypeAutolinkHeadings],
-    frontmatter: {
-      marker: "+",
-      type: "toml",
-      parse(frontmatter, messages) {
-        try {
-          return Toml.parse(frontmatter);
-        } catch (e) {
-          messages.push(
-            `Parsing error on line ${e.line}, column ${e.column}: ${e.message}`
-          );
-        }
-      },
-    },
-  }),
+  mdsvex,
   SvPre.default({
     postcss: true,
     defaults: { script: "typescript" },
@@ -87,7 +51,7 @@ export default {
     plugins: [
       alias({
         entries: {
-          "@": path.join(__dirname, "src"),
+          "@": Path.join(__dirname, "src"),
         },
       }),
       replace({
@@ -104,7 +68,7 @@ export default {
         },
       }),
       url({
-        sourceDir: path.resolve(__dirname, "src/node_modules/images"),
+        sourceDir: Path.resolve(__dirname, "src/node_modules/images"),
         publicPath: "/client/",
       }),
       resolve({
@@ -158,7 +122,7 @@ export default {
     plugins: [
       alias({
         entries: {
-          "@": path.join(__dirname, "src"),
+          "@": Path.join(__dirname, "src"),
         },
       }),
       replace({
@@ -177,7 +141,7 @@ export default {
         emitCss: false,
       }),
       url({
-        sourceDir: path.resolve(__dirname, "src/node_modules/images"),
+        sourceDir: Path.resolve(__dirname, "src/node_modules/images"),
         publicPath: "/client/",
         emitFiles: false, // already emitted by client build
       }),
