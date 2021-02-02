@@ -1,4 +1,5 @@
 <script>
+  import Test from "./Test.svx";
   export let segment: string | undefined;
 </script>
 
