@@ -2,12 +2,7 @@
 
 import {age} from '@/lib/age';
 
-import {stores} from '@sapper/app';
-const {page} = stores();
-
 </script>
-
-# toc
 
 # Fast facts
 
