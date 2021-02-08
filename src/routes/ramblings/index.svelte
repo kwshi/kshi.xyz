@@ -3,19 +3,27 @@
 
   import posts from "@@posts";
 
+  interface Frontmatter {
+    title: string;
+    tags: string[];
+    short: string;
+    updated?: string;
+    created: string;
+  }
+
   interface Post {
     data: {
-      frontmatter: {
-        title: string;
-        tags: string[];
-        short: string;
-        updated: string;
-      };
+      frontmatter: Frontmatter;
       headings: string[];
       intro: string;
     };
     prefix: string[];
   }
+
+  const showDate = (s: string) => new Date(s).toLocaleDateString();
+  const showPostDates = (fm: Frontmatter) =>
+    `posted ${showDate(fm.created)}` +
+    (fm.updated ? `, updated ${showDate(frontmatter.updated)}` : "");
 
   //{JSON.stringify(posts)}
 </script>
@@ -28,13 +36,10 @@
           <strong>{post.data.frontmatter.title}</strong>
         </a>
         <em>{post.data.frontmatter.short}</em>
-        <span
-          >[last updated {new Date(
-            post.data.frontmatter.updated
-          ).toLocaleDateString()}]</span
-        >
+        [{showPostDates(post.data.frontmatter)}]
       </header>
       {@html post.data.intro}
+      <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
     </li>
   {/each}
 </ul>

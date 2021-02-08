@@ -2,7 +2,7 @@
 title = "Hello world!"
 tags = ["meta"]
 short = "Welcome to my new website!"
-updated = 2021-02-07 23:00:00-08:00
+created = 2021-02-07 23:00:00-08:00
 +++
 
 # test test test
