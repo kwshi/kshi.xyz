@@ -55,7 +55,7 @@ say: I don't know, you tell me!_
   - OCaml
   - Python (for fast coding settings, e.g. competitions)
   - Bash (I know, right?)
-  - [TikZ][pgf-tikz]
+  - [TikZ][tikz-pikachu]
   - Elm
 
   (Languages I really want to learn, but haven't gotten around to:)
@@ -66,6 +66,7 @@ say: I don't know, you tell me!_
   - Julia
 
 [pgf-tikz]: https://en.wikipedia.org/wiki/PGF/TikZ
+[tikz-pikachu]: https://github.com/kwshi/pikachu-tikz
 
 - My preferred text editor: currently Neovim, but I'd like to get back into the
   Emacs groove some day soon.  (_Maybe_ I'll explore VSCode some day, but on
@@ -76,3 +77,10 @@ say: I don't know, you tell me!_
   - OpenSCAD
   - Solvespace
   - Blender (though I'm utterly no good at it yet, I enjoy it on principle)
+
+## Software with which I have unhealthy relationships
+
+- Zathura
+- $\TeX$ / $\LaTeX$
+- OpenSCAD
+- `elm-format`
