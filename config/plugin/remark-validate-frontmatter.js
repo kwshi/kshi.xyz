@@ -5,19 +5,20 @@ export default () => (_, file) => {
     return;
   }
 
-  for (const key of ["title", "short", "tags", "updated"])
+  for (const key of ["title", "short", "tags", "created"])
     if (!front[key])
       file.message(`frontmatter missing ${JSON.stringify(key)}.`);
 
-  if (!Array.isArray(front.tags))
+  if (front.tags && !Array.isArray(front.tags))
     file.message(
       `frontmatter "tags" value ${JSON.stringify(front.tags)} is not an array.`
     );
 
-  if (isNaN(new Date(front.updated)))
-    file.message(
-      `frontmatter "updated" value ${JSON.stringify(
-        front.updated
-      )} does not specify a valid date.`
-    );
+  for (const key of ["created", "updated"])
+    if (isNaN(new Date(front[key])))
+      file.message(
+        `frontmatter ${JSON.stringify(key)} value ${JSON.stringify(
+          front[key]
+        )} does not specify a valid date.`
+      );
 };
