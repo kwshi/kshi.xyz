@@ -1,17 +1,19 @@
 import * as Path from "path";
 import { promises as Fs } from "fs";
 
-import Toml from "toml";
+import Toml from "@iarna/toml";
+import Chalk from "chalk";
 
-import unified from "unified";
 import remark from "remark";
-import remarkParse from "remark-parse";
-import remarkStringify from "remark-stringify";
 import ToVFile from "to-vfile";
+import VMessage from "vfile-message";
 
 import remarkFrontmatter from "remark-frontmatter";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
-import unistVisit from "unist-util-visit";
+
+import remarkExtractHeadings from "./remark-extract-headings";
+import remarkExtractIntro from "./remark-extract-intro";
+import remarkValidateFrontmatter from "./remark-validate-frontmatter";
 
 const crawl = async function* (path, prefix = []) {
   if ((await Fs.lstat(path)).isDirectory())
@@ -30,8 +32,12 @@ const read = async ({ path, prefix }) => {
   const file = await remark()
     .use(remarkFrontmatter, ["toml"])
     .use(remarkExtractFrontmatter, { name: "frontmatter", toml: Toml.parse })
+    .use(remarkValidateFrontmatter)
+    .use(remarkExtractHeadings)
+    .use(remarkExtractIntro)
     .process(await ToVFile.read(path));
-  return { prefix, metadata: file.data.frontmatter };
+  for (const msg of file.messages) console.error(Chalk.stderr.redBright(msg));
+  return { prefix, data: file.data };
 };
 
 export default ({ alias, extensions }) => ({

@@ -14,6 +14,10 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import remarkInjectToc from "./plugin/remark-inject-toc";
 import rehypeBaseWorkaround from "./plugin/rehype-base-workaround";
 
+import VMessage from "vfile-message";
+
+import Toml from "@iarna/toml";
+
 // - plugin to generate TOC as sidebar
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -37,6 +41,12 @@ export default mdsvex({
     remarkInjectToc,
     [remarkToc, { tight: true }],
     remarkSlug,
+    () => (_, file) => {
+      file.message("OY, please pay attention to me");
+    },
+    () => (_, file) => {
+      for (const msg of file.messages) console.error(msg.toString());
+    },
   ],
   rehypePlugins: [
     rehypeAutolinkHeadings,
@@ -48,11 +58,9 @@ export default mdsvex({
     type: "toml",
     parse(frontmatter, messages) {
       try {
-        return Toml.parse(frontmatter);
-      } catch (e) {
-        messages.push(
-          `Parsing error on line ${e.line}, column ${e.column}: ${e.message}`
-        );
+        Toml.parse(frontmatter);
+      } catch (err) {
+        messages.push(new VMessage("Failed to parse frontmatter"));
       }
     },
   },

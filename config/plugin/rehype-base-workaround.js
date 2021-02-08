@@ -25,18 +25,20 @@ import * as Path from "path";
 
 import unistVisit from "unist-util-visit";
 
-const getPath = (filename) => {
+const getRoute = (filename) => {
   const parent = Path.relative("src/routes", Path.dirname(filename));
   const base = Path.basename(filename, Path.extname(filename));
-  return base === "index" ? parent : `${parent}/${base}`;
+  return (base === "index" ? parent : `${parent}/${base}`)
+    .split(Path.sep)
+    .join("/");
 };
 
 export default () => (tree, file) => {
-  const path = getPath(file.filename);
-  if (path.split(Path.sep)[0] === "..") return;
+  const route = getRoute(file.filename);
+  if (route.split(Path.sep)[0] === "..") return;
 
   unistVisit(tree, "element", (node) => {
     if (node.tagName !== "a" || !node.properties.href?.startsWith("#")) return;
-    node.properties.href = `/${path}/${node.properties.href}`;
+    node.properties.href = `/${route}/${node.properties.href}`;
   });
 };
