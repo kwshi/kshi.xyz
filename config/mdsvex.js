@@ -17,6 +17,7 @@ import rehypeBaseWorkaround from "./plugin/rehype-base-workaround";
 import VMessage from "vfile-message";
 
 import Toml from "@iarna/toml";
+import Chalk from "chalk";
 
 // - plugin to generate TOC as sidebar
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -41,17 +42,15 @@ export default mdsvex({
     remarkInjectToc,
     [remarkToc, { tight: true }],
     remarkSlug,
-    () => (_, file) => {
-      file.message("OY, please pay attention to me");
-    },
-    () => (_, file) => {
-      for (const msg of file.messages) console.error(msg.toString());
-    },
   ],
   rehypePlugins: [
     rehypeAutolinkHeadings,
     [rehypeKatexSvelte, { macros: katexMacros }],
     rehypeBaseWorkaround,
+    () => (_, file) => {
+      for (const msg of file.messages)
+        console.error(Chalk.stderr.redBright(msg.toString()));
+    },
   ],
   frontmatter: {
     marker: "+",
