@@ -15,7 +15,7 @@ export default () => (_, file) => {
     );
 
   for (const key of ["created", "updated"])
-    if (isNaN(new Date(front[key])))
+    if (front[key] && isNaN(new Date(front[key])))
       file.message(
         `frontmatter ${JSON.stringify(key)} value ${JSON.stringify(
           front[key]
