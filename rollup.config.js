@@ -1,4 +1,5 @@
 import * as Path from "path";
+import * as Fs from "fs";
 
 import alias from "@rollup/plugin-alias";
 import resolve from "@rollup/plugin-node-resolve";
@@ -17,6 +18,7 @@ import pkg from "./package.json";
 //import Toml from "toml";
 
 import mdsvex from "./config/mdsvex";
+import rollupCrawl from "./config/plugin/rollup-plugin-crawl";
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
@@ -44,6 +46,11 @@ const onwarn = (warning, onwarn) =>
   warning.code === "THIS_IS_UNDEFINED" ||
   onwarn(warning);
 
+const posts = rollupCrawl({
+  alias: "@@posts",
+  extensions: [".svx"],
+});
+
 export default {
   client: {
     input: config.client.input().replace(/\.js$/, ".ts"),
@@ -54,6 +61,7 @@ export default {
           "@": Path.join(__dirname, "src"),
         },
       }),
+      posts,
       replace({
         "process.browser": true,
         "process.env.NODE_ENV": JSON.stringify(mode),
@@ -77,7 +85,7 @@ export default {
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
-      rollupGlob(),
+      //rollupGlob(),
 
       legacy &&
         babel({
@@ -120,6 +128,7 @@ export default {
       chokidar: { usePolling: true },
     },
     plugins: [
+      posts,
       alias({
         entries: {
           "@": Path.join(__dirname, "src"),
@@ -150,7 +159,7 @@ export default {
       }),
       commonjs(),
       typescript({ sourceMap: dev }),
-      rollupGlob(),
+      //rollupGlob(),
     ],
     external: Object.keys(pkg.dependencies).concat(
       require("module").builtinModules

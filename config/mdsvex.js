@@ -11,7 +11,8 @@ import rehypeKatexSvelte from "rehype-katex-svelte";
 
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-import rehypeBaseWorkaround from "./preprocess/rehype-base-workaround";
+import remarkInjectToc from "./plugin/remark-inject-toc";
+import rehypeBaseWorkaround from "./plugin/rehype-base-workaround";
 
 // - plugin to generate TOC as sidebar
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -33,6 +34,7 @@ export default mdsvex({
     remarkMath,
     remarkFootnotes,
     remarkEmoji,
+    remarkInjectToc,
     [remarkToc, { tight: true }],
     remarkSlug,
   ],
