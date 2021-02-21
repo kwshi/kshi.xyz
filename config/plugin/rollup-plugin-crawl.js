@@ -6,16 +6,16 @@ import Chalk from "chalk";
 
 import remark from "remark";
 import ToVFile from "to-vfile";
-import VMessage from "vfile-message";
 
 import remarkFrontmatter from "remark-frontmatter";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
+import remarkSmartypants from "@silvenon/remark-smartypants";
 
 import remarkExtractHeadings from "./remark-extract-headings";
 import remarkExtractIntro from "./remark-extract-intro";
 import remarkValidateFrontmatter from "./remark-validate-frontmatter";
 
-const crawl = async function* (path, prefix = []) {
+const crawl = async function*(path, prefix = []) {
   if ((await Fs.lstat(path)).isDirectory())
     for (const name of await Fs.readdir(path))
       yield* crawl(Path.join(path, name), [...prefix, name]);
@@ -33,6 +33,7 @@ const read = async ({ path, prefix }) => {
     .use(remarkFrontmatter, ["toml"])
     .use(remarkExtractFrontmatter, { name: "frontmatter", toml: Toml.parse })
     .use(remarkValidateFrontmatter)
+    .use(remarkSmartypants, { dashes: 'oldschool', backticks: true })
     .use(remarkExtractHeadings)
     .use(remarkExtractIntro)
     .process(await ToVFile.read(path));

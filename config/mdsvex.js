@@ -33,6 +33,7 @@ const katexMacros = {
 export default mdsvex({
   smartypants: {
     dashes: "oldschool",
+    backticks: true,
   },
   remarkPlugins: [
     remarkGithub,
