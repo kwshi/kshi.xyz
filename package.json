@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/kwshi/kshi.xyz",
   "scripts": {
+    "preinstall": "apt-get install -y libfontconfig1-dev libgraphite2-dev libharfbuzz-dev libicu-dev libssl-dev zlib1g-dev",
     "install": "cargo install tectonic",
     "dev:sapper": "sapper dev --ext '.svelte .svx .html'",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
