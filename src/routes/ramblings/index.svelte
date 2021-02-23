@@ -23,23 +23,21 @@
   const showDate = (s: string) => new Date(s).toLocaleDateString();
   const showPostDates = (fm: Frontmatter) =>
     `posted ${showDate(fm.created)}` +
-    (fm.updated ? `, updated ${showDate(frontmatter.updated)}` : "");
+    (fm.updated ? `, updated ${showDate(fm.updated)}` : "");
 
   //{JSON.stringify(posts)}
 </script>
 
-<ul>
   {#each posts as post}
-    <li>
+    <section>
       <header>
         <a href="/ramblings/{post.prefix.join('/')}">
-          <strong>{post.data.frontmatter.title}</strong>
+          <h2>{post.data.frontmatter.title}</h2>
         </a>
         <em>{post.data.frontmatter.short}</em>
-        [{showPostDates(post.data.frontmatter)}]
+        <span>[{showPostDates(post.data.frontmatter)}]</span>
       </header>
       {@html post.data.intro}
       <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
-    </li>
+    </section>
   {/each}
-</ul>
