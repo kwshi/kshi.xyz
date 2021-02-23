@@ -9,7 +9,7 @@
     "dev": "run-p dev:*",
     "build:sapper": "sapper build --ext '.svx .svelte .html' --legacy",
     "build:export": "sapper export --ext '.svx .svelte .html' --legacy",
-    "build:resume": "cargon run tectonic resume/test.tex",
+    "build:resume": "cargo run tectonic resume/test.tex",
     "build": "run-p build:*",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
