@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/kwshi/kshi.xyz",
   "scripts": {
-    "preinstall": "curl -Lo tectonic 'https://github.com/tectonic-typesetting/tectonic/releases/download/continuous/tectonic-continuous-x86_64.AppImage' && chmod +x tectonic.AppImage",
+    "preinstall": "curl -Lo tectonic.AppImage 'https://github.com/tectonic-typesetting/tectonic/releases/download/continuous/tectonic-continuous-x86_64.AppImage' && chmod +x tectonic.AppImage",
     "install": "./tectonic.AppImage --appimage-extract",
     "dev:sapper": "sapper dev --ext '.svelte .svx .html'",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
