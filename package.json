@@ -4,14 +4,13 @@
   "version": "0.0.1",
   "repository": "https://github.com/kwshi/kshi.xyz",
   "scripts": {
-    "preinstall": "apt-get install -y libfontconfig1-dev libgraphite2-dev libharfbuzz-dev libicu-dev libssl-dev zlib1g-dev",
-    "install": "cargo install tectonic",
+    "install": "curl -Lo tectonic 'https://github.com/tectonic-typesetting/tectonic/releases/download/continuous/tectonic-continuous-x86_64.AppImage' && chmod +x tectonic",
     "dev:sapper": "sapper dev --ext '.svelte .svx .html'",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
     "dev": "run-p dev:*",
     "build:sapper": "sapper build --ext '.svx .svelte .html' --legacy",
     "build:export": "sapper export --ext '.svx .svelte .html' --legacy",
-    "build:resume": "tectonic resume/test.tex",
+    "build:resume": "./tectonic resume/test.tex",
     "build": "run-p build:*",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
