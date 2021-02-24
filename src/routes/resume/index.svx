@@ -1,0 +1,157 @@
++++
+a = "hi"
++++
+
+<script>
+import Date from '@/components/resume/Date.svelte';
+</script>
+
+
+# Education
+
+**Harvey Mudd College** <Date>Aug. 2017--[May 2022]</Date>
+
+- Class of 2022
+- B.S., Joint Math & Computer Science
+- Dean's List
+
+## Relevant coursework (CS)
+
+- Data Structures & Algorithms
+- Computability & Formal Logic
+- Complexity Theory
+- Digital Electronics & Computer Engineering
+- Computer Science Clinic
+
+## Relevant coursework (Math)
+
+- Abstract Algebra, Algebraic Geometry, Representation Theory
+- Advanced Linear Algebra
+- Differential Equations[^ex], Multivariable Calculus
+- Discrete Math[^ex]
+- Real Analysis, Measure Theory
+- Complex Analysis
+
+## Relevant coursework (Physics)
+
+- Special Relativity[^ex]
+- Quantum Mechanics
+- Quantum Information
+- Electromagnetic Theory & Optics[^ex]
+
+[^ex]: qualified for exemption
+
+# Skills
+
+## Programming languages
+
+- Proficient: OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+- Competent: Go, C/C++, Java, SQL
+- Basic: Haskell, Swift, Factor, Elvish, Mathematica
+
+## Technologies
+
+- 3D modeling/CAD: OpenSCAD, SolveSpace
+- Web: React, Redux, HTML/CSS
+- Typesetting: $\LaTeX$
+- Systems: Linux, Make, Docker
+- Databases: PostgreSQL
+- Hardware: Arduino, Cura (3D printing)
+
+# Work
+
+## Software
+
+- **Bloomberg**, Summer Intern <Date>June--Sep. 2019</Date>
+
+  - Developed tool to automatically generate XML schema definitions based on
+    OCaml type declarations
+  - Created web-based OCaml library documentation browser, now used
+    ubiquitously by OCaml developers at Bloomberg
+
+- **Bloomberg**, Summer Intern <Date>May--Dec. 2020</Date>
+
+  - Developed tooling enhancements for an internal domain-specific language:
+
+    - Auto-formatter using syntax tree (a la [prettier][prettier])
+    - Proof-of-concept [language server][lsp]
+    - Boilerplate code generator from XML schema definitions
+
+  - Created a Solr-based search platform for financial contracts with
+    NLP-capable search queries
+
+<!-- - **Luma**, Intern <Date>Jan. 2021--</Date> -->
+
+
+[lsp]: https://microsoft.github.io/language-server-protocol/
+[prettier]: https://prettier.io/
+
+## Teaching
+
+- [**MathILy**][mathily], Assistant Instructor <Date>July 2020</Date>
+
+  - Helped develop & teach [inquiry-based] curriculum in linear algebra,
+    discrete math, and [origami][origami-wiki] [mathematics][origametry]
+  - Taught "bite-sized", week-long courses on:
+    - Surreal numbers
+    - Finite state automata
+    - Algorithms
+  - Led hour-long exploration on the Exact Cover Problem (termed the "sushi
+    problem") & a reduction from Sudoku
+
+- [**U.S. Physics Team**][usphysics], Junior Coach <Date>Summer 2019--</Date>
+
+  - Helped write, proofread, & provide illustrations for problems for the
+    annual $F=ma$ & USAPhO competitions
+  - Taught lessons in olympiad-level electromagnetics, lab techniques, and
+    mechanics at summer training camp
+
+- Grutoring
+- Independent tutoring
+
+[mathily]: http://mathily.org/
+[ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
+[origami-wiki]: https://en.wikipedia.org/wiki/Mathematics_of_paper_folding
+[origametry]: http://origametry.net/omfiles/geoconst.html
+
+[usphysics]: https://aapt.org/physicsteam/2021/registration.cfm
+
+## Research
+
+- Physics
+- Number theory
+
+# Projects
+
+- [**Hyperschedule**][hyperschedule], maintainer
+
+  - Tool for browsing courses & planning schedules for students at the
+    [5Cs][5cs]
+  - Used ubiquitously by 5C students (1,000+ students according to analytics
+    data)
+
+- [**Slick**][slick], co-creator
+
+  - Statically-typed, [_row-polymorphic_][row-polymorphism], functional
+    programming language created for the [2020 Repl.it Programming Language
+    Competition][replit-jam], meant to combine the type-safety of ML/Haskell
+    with the flexibility & ease-of-use of Python
+
+[hyperschedule]: https://github.com/MuddCreates/hyperschedule
+[slick]: https://github.com/kwshi/slick
+[5cs]: https://www.claremont.edu/
+[row-polymorphism]: https://en.wikipedia.org/wiki/Row_polymorphism
+[replit-jam]: https://repl.it/site/jam
+
+# Achievements
+
+- Advent of Code, 31st place (2019) & 53rd place (2020)
+- ACM ICPC, national
+- USAPhO
+
+# Extracurriculars
+
+- Ballroom dancing
+- Table tennis
+- Wheelthrowing
+- Drawing

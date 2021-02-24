@@ -1,0 +1,19 @@
++++
+title = "TypeScript can do Arithmetic"
+created = 2021-02-11
+short = "Who needs calculators when you have types?"
+tags = ["programming", "typescript", "types", "magic"]
++++
+
+So I came across [``Fun with advanced TypeScript'' by William
+Candillon](https://www.youtube.com/watch?v=nNse0r0aRT8) yesterday, in which he
+explained some TypeScript hackery that could be used to compute
+
+a--b, a---b, "a", ``b''
+
+```ts
+// with minor modifications from the one shown in the video, but same idea
+type IndexOf<Tuple extends [], State extends number[] = []> =
+  Tuple['length'] extends State['length']
+  ? State
+```

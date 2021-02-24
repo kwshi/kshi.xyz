@@ -13,6 +13,7 @@
   <a href="/art" class:now={segment === "art"}>my art</a>
   <a href="/toys" class:now={segment === "toys"}>my projects</a>
   <a href="/contact" class:now={segment === "contact"}>contact me</a>
+  <a href="/resume" class:now={segment === "resume"}>my resume</a>
 </nav>
 
 <style>
