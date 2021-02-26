@@ -29,7 +29,8 @@
 </script>
 
   {#each posts as post}
-    <section>
+  <pre>{JSON.stringify(post, undefined, 2)}</pre>
+    <!--section>
       <header>
         <a href="/ramblings/{post.prefix.join('/')}">
           <h2>{post.data.frontmatter.title}</h2>
@@ -39,5 +40,5 @@
       </header>
       {@html post.data.intro}
       <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
-    </section>
+    </section-->
   {/each}

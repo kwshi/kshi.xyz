@@ -1,6 +1,5 @@
 +++
 title = "TypeScript can do Arithmetic"
-created = 2021-02-11
 short = "Who needs calculators when you have types?"
 tags = ["programming", "typescript", "types", "magic"]
 +++
