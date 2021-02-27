@@ -9,6 +9,7 @@
     "dev": "run-p dev:*",
     "build:sapper": "sapper build --ext '.svx .svelte .html' --legacy",
     "build:export": "sapper export --ext '.svx .svelte .html' --legacy",
+    "build:pcss": "postcss -o static/global.css src/assets/global.pcss",
     "build": "run-p build:*",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
