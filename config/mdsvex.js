@@ -13,6 +13,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import remarkInjectToc from "./plugin/remark-inject-toc";
 import rehypeBaseWorkaround from "./plugin/rehype-base-workaround";
+import remarkGlobalToc from "./plugin/remark-global-toc";
 
 import VMessage from "vfile-message";
 
@@ -40,8 +41,7 @@ export default mdsvex({
     remarkMath,
     remarkFootnotes,
     remarkEmoji,
-    remarkInjectToc,
-    [remarkToc, { tight: true }],
+    remarkGlobalToc,
     remarkSlug,
   ],
   rehypePlugins: [
