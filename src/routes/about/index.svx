@@ -17,25 +17,22 @@ Hi there!  I'm Kye (he/him/his), and here are some fast facts about me:
   hunts, the Marvel Cinematic Universe, Minecraft, cooking, ballroom dancing,
   fountain pens, [Sophia Cheng][scheng].
 
-[scheng]: https://www.hmc.edu/about-hmc/2018/11/14/hmc-students-at-health-hackathon/
-
-[ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
-
 - Bands I'm currently excited about: [Lydian Collective][lc], Panic! At the
   Disco, Fall Out Boy.  
 
   Other music I really like: the _How To Train Your Dragon_ soundtracks, the
   _Halo_ soundtracks, the _Last of Us_ theme.
 
-[lc]: https://www.lydiancollective.com
-
 - I won a gold medal at the [2017 IPhO][ipho-gold] and am currently serving as
   a junior coach to the U.S. Physics Team.
 
-[ipho-gold]: https://ipho-unofficial.org/timeline/2017/individual
-
 - Some of my favorite foods: Shanghai-style scallion noodles (葱油拌面),
   chocolate lava cake, Peking duck, steak.
+
+[scheng]: https://www.hmc.edu/about-hmc/2018/11/14/hmc-students-at-health-hackathon/
+[ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
+[lc]: https://www.lydiancollective.com
+[ipho-gold]: https://ipho-unofficial.org/timeline/2017/individual
 
 ## "Where are you from?"
 
