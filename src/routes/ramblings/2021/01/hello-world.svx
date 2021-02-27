@@ -4,27 +4,4 @@ tags = ["meta"]
 short = "Welcome to my new website!"
 +++
 
-# test test test
-
-Hello world!
-
-- test thing
-
-- test another thing
-
-1. numbered
-2. list
-
-ok what about now
-
-- test a shortlist
-- short
-
-> quotation thing
-
-```js
-code thing
-```
-
-# uhh
-
+hi there

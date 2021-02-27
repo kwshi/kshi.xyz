@@ -10,8 +10,3 @@
 <main>
   <slot />
 </main>
-
-<style global>
-
-
-</style>

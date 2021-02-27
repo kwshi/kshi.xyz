@@ -1,14 +1,25 @@
 body {
-  @apply m-0 font-sans bg-warmgray-900 text-warmgray-200;
+  @apply m-0 font-sans bg-warmgray-800 text-warmgray-200;
 }
 
 a {
-  @apply no-underline text-teal-300 transition-colors;
-  &:hover { @apply text-teal-100; }
+  @apply 
+  no-underline 
+  text-teal-300
+  duration-150
+  transition-colors 
+  ease-linear;
+  &:hover { 
+    @apply text-teal-100;
+  }
 }
 
 code {
   @apply font-mono;
+}
+
+.katex {
+  @apply text-lg;
 }
 
 main {
