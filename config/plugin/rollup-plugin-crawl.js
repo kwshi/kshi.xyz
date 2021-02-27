@@ -77,7 +77,7 @@ export default ({ alias, extensions }) => ({
     if (Path.basename(src) !== alias) return null;
 
     const repo = await Git.Repository.open('.');
-    const commit = (await repo.getBranchCommit('main')).id();
+    const commit = (await repo.getHeadCommit()).id();
 
     const contents = [];
     for await (const post of crawl(Path.dirname(src)))
