@@ -5,7 +5,7 @@ export default () => (_, file) => {
     return;
   }
 
-  for (const key of ["title", "short", "tags", "created"])
+  for (const key of ["title", "short", "tags"])
     if (!front[key])
       file.message(`frontmatter missing ${JSON.stringify(key)}.`);
 
@@ -13,12 +13,4 @@ export default () => (_, file) => {
     file.message(
       `frontmatter "tags" value ${JSON.stringify(front.tags)} is not an array.`
     );
-
-  for (const key of ["created", "updated"])
-    if (front[key] && isNaN(new Date(front[key])))
-      file.message(
-        `frontmatter ${JSON.stringify(key)} value ${JSON.stringify(
-          front[key]
-        )} does not specify a valid date.`
-      );
 };
