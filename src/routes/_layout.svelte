@@ -12,13 +12,6 @@
 </main>
 
 <style global>
-  // temporary trick to use remark-toc to generate toc sidebars,
-  // but maybe we can write our own remark plugin to do it
-  // automatically
-  #toc {
-    display: none;
 
-    & + ul {
-    }
-  }
+
 </style>
