@@ -7,8 +7,11 @@
     title: string;
     tags: string[];
     short: string;
-    updated?: string;
-    created: string;
+  }
+
+  interface Timeline {
+    added: string;
+    modified?: string;
   }
 
   interface Post {
@@ -18,27 +21,27 @@
       intro: string;
     };
     prefix: string[];
+    timeline: Timeline;
   }
 
   const showDate = (s: string) => new Date(s).toLocaleDateString();
-  const showPostDates = (fm: Frontmatter) =>
-    `posted ${showDate(fm.created)}` +
-    (fm.updated ? `, updated ${showDate(fm.updated)}` : "");
+  const showPostDates = (t: Timeline) =>
+    `posted ${showDate(t.added)}` +
+    (t.modified ? `, updated ${showDate(t.modified)}` : "");
 
   //{JSON.stringify(posts)}
 </script>
 
   {#each posts as post}
-  <pre>{JSON.stringify(post, undefined, 2)}</pre>
-    <!--section>
+    <section>
       <header>
         <a href="/ramblings/{post.prefix.join('/')}">
           <h2>{post.data.frontmatter.title}</h2>
         </a>
         <em>{post.data.frontmatter.short}</em>
-        <span>[{showPostDates(post.data.frontmatter)}]</span>
+        <span>[{showPostDates(post.timeline)}]</span>
       </header>
       {@html post.data.intro}
       <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
-    </section-->
+    </section>
   {/each}
