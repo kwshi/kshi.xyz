@@ -45,6 +45,7 @@
       <div class='preview'>
       {@html post.data.intro}
       </div>
+      <div class='overlay'/>
       <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
     </section>
   {/each}
@@ -56,11 +57,14 @@ display: grid;
 @apply gap-y-8;
 
 & > section {
+display: grid;
+grid-template-areas: 'header' 'content';
+
 & > header {
-  @apply items-baseline gap-x-2;
-  display: grid;
+  @apply items-baseline gap-x-2 grid;
   grid-template-areas: 'title date' 'short short';
   grid-template-columns: 1fr max-content;
+  grid-area: header;
   
   & > a {
     grid-area: title;
@@ -77,8 +81,12 @@ display: grid;
 }
 
 & > .preview {
-  @apply bg-clip-text bg-gradient-to-b from-warmgray-300 to-warmgray-500;
-  color: transparent;
+  grid-area: content;
+}
+
+& > .overlay {
+  @apply bg-gradient-to-b from-transparent to-warmgray-800 z-10;
+  grid-area: content;
 }
 }
 }

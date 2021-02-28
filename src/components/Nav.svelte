@@ -18,9 +18,13 @@
 
 <style>
   nav {
-    @apply flex flex-row;
-    a {
-      @apply px-2 py-1;
+    @apply flex flex-row bg-cyan-900 transition-colors;
+    & > a {
+      @apply px-4 py-2 text-cyan-50;
+      &[href="/"] { @apply font-bold; }
+      &:hover {
+        @apply bg-cyan-700 text-white;
+      }
     }
   }
 </style>
