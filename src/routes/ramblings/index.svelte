@@ -21,13 +21,15 @@
       intro: string;
     };
     prefix: string[];
-    timeline: Timeline;
+    timeline?: Timeline;
   }
 
   const showDate = (s: string) => new Date(s).toLocaleDateString();
   const showPostDates = (t: Timeline) =>
+  t ? 
     `posted ${showDate(t.added)}` +
-    (t.modified ? `, updated ${showDate(t.modified)}` : "");
+    (t.modified ? `, updated ${showDate(t.modified)}` : "") 
+    : 'not yet posted';
 
   //{JSON.stringify(posts)}
 </script>
