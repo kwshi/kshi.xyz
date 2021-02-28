@@ -1,6 +1,6 @@
 import { mdsvex } from "mdsvex";
 
-import remarkMath from "remark-math";
+import remarkMath from "remark-math-old";
 import remarkGithub from "remark-github";
 import remarkFootnotes from "remark-footnotes";
 import remarkToc from "remark-toc";

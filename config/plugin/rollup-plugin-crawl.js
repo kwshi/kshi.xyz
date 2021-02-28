@@ -10,6 +10,7 @@ import remark from "remark";
 import ToVFile from "to-vfile";
 
 import remarkFrontmatter from "remark-frontmatter";
+import remarkMath from "remark-math";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import remarkSmartypants from "@silvenon/remark-smartypants";
 
@@ -57,6 +58,7 @@ const read = async ({ repo, commit, path, prefix }) => {
     .use(remarkExtractFrontmatter, { name: "frontmatter", toml: Toml.parse })
     .use(remarkValidateFrontmatter)
     .use(remarkSmartypants, { dashes: 'oldschool', backticks: true })
+    .use(remarkMath)
     .use(remarkExtractHeadings)
     .use(remarkExtractIntro)
     .process(await ToVFile.read(path));

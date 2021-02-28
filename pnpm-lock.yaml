@@ -58,7 +58,8 @@ devDependencies:
   remark-footnotes: 2.0.0
   remark-frontmatter: 3.0.0
   remark-github: 10.0.1
-  remark-math: 3.0.1
+  remark-math: 4.0.0
+  remark-math-old: /remark-math/3.0.1
   remark-rehype: 8.0.0
   remark-slug: 6.0.0
   remark-toc: 7.0.0
@@ -3103,6 +3104,14 @@ packages:
     dev: true
     resolution:
       integrity: sha512-FHKL4w4S5fdt1KjJCwB0178WJ0evnyyQr5kXTM3wrOVpytD0hrkvd+AOOjU9Td8onOejCkmZ+HQRT3CZ3coHHQ==
+  /mdast-util-math/0.1.2:
+    dependencies:
+      longest-streak: 2.0.4
+      mdast-util-to-markdown: 0.6.5
+      repeat-string: 1.6.1
+    dev: true
+    resolution:
+      integrity: sha512-fogAitds+wH+QRas78Yr1TwmQGN4cW/G2WRw5ePuNoJbBSPJCxIOCE8MTzHgWHVSpgkRaPQTgfzXRE1CrwWSlg==
   /mdast-util-phrasing/2.0.0:
     dependencies:
       unist-util-is: 4.0.4
@@ -3146,6 +3155,17 @@ packages:
     dev: true
     resolution:
       integrity: sha512-iRczns6WMvu0hUw02LXsPDJshBIwtUPbvHBWo19IQeU0YqmzlA8Pd30U8V7uiI0VPkxzS7A/NXBXH6u+HS87Zg==
+  /mdast-util-to-markdown/0.6.5:
+    dependencies:
+      '@types/unist': 2.0.3
+      longest-streak: 2.0.4
+      mdast-util-to-string: 2.0.0
+      parse-entities: 2.0.0
+      repeat-string: 1.6.1
+      zwitch: 1.0.5
+    dev: true
+    resolution:
+      integrity: sha512-XeV9sDE7ZlOQvs45C9UKMtfTcctcaj/pGwH8YLbMHoMOXNNCn2LsqVQOqrF1+/NU8lKDAqozme9SCXWyo9oAcQ==
   /mdast-util-to-string/1.1.0:
     dev: true
     resolution:
@@ -3203,6 +3223,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-q6nPLFCMTLtfsctAuS0Xh4vaolxSFUWUWR6PZSrXXiRy+SANGllpcqdXFv2z07l0Xz/6Hl40hK0ffNCJPH2n1A==
+  /micromark-extension-math/0.1.2:
+    dependencies:
+      katex: 0.12.0
+      micromark: 2.11.4
+    dev: true
+    resolution:
+      integrity: sha512-ZJXsT2eVPM8VTmcw0CPSDeyonOn9SziGK3Z+nkf9Vb6xMPeU+4JMEnO6vzDL10562Favw8Vste74f54rxJ/i6Q==
   /micromark/2.11.2:
     dependencies:
       debug: 4.3.1
@@ -3210,6 +3237,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-IXuP76p2uj8uMg4FQc1cRE7lPCLsfAXuEfdjtdO55VRiFO1asrCSQ5g43NmPqFtRwzEnEhafRVzn2jg0UiKArQ==
+  /micromark/2.11.4:
+    dependencies:
+      debug: 4.3.1
+      parse-entities: 2.0.0
+    dev: true
+    resolution:
+      integrity: sha512-+WoovN/ppKolQOFIAajxi7Lu9kInbPxFuTBVEavFcL8eAfVstoc5MocPmqBeAdBOJV00uaVjegzH4+MA0DN/uA==
   /micromatch/4.0.2:
     dependencies:
       braces: 3.0.2
@@ -4173,6 +4207,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-epT77R/HK0x7NqrWHdSV75uNLwn8g9qTyMqCRCDujL0vj/6T6+yhdrR7mjELWtkse+Fw02kijAaBuVcHBor1+Q==
+  /remark-math/4.0.0:
+    dependencies:
+      mdast-util-math: 0.1.2
+      micromark-extension-math: 0.1.2
+    dev: true
+    resolution:
+      integrity: sha512-lH7SoQenXtQrvL0bm+mjZbvOk//YWNuyR+MxV18Qyv8rgFmMEGNuB0TSCQDkoDaiJ40FCnG8lxErc/zhcedYbw==
   /remark-parse/9.0.0:
     dependencies:
       mdast-util-from-markdown: 0.8.4
@@ -5292,7 +5333,8 @@ specifiers:
   remark-footnotes: ^2.0.0
   remark-frontmatter: ^3.0.0
   remark-github: ^10.0.1
-  remark-math: ^3.0.1
+  remark-math: ^4.0.0
+  remark-math-old: npm:remark-math@3
   remark-rehype: ^8.0.0
   remark-slug: ^6.0.0
   remark-toc: ^7.0.0
