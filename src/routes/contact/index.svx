@@ -1,6 +1,10 @@
 +++
 +++
 
-- email me: shi.kye@gmail.com or kwshi@hmc.edu
-- github: [kwshi](//github.com/kwshi)
-- twitter: [kyewshi](//twitter.com/kwshi)
+- email me: [`shi.kye@gmail.com`][gmail] or [`kwshi@hmc.edu`][hmcmail]
+- github: [`kwshi`](//github.com/kwshi)
+- twitter: [`kyewshi`](//twitter.com/kwshi)
+- luma: [`kye`](//lu.ma/kye)
+
+[gmail]: mailto:shi.kye@gmail.com
+[hmcmail]: mailto:kwshi@hmc.edu
