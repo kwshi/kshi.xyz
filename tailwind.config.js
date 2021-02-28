@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Cabin", ...defaultTheme.fontFamily.sans],
+        sans: ["Cabin", 'Barlow', ...defaultTheme.fontFamily.sans],
         mono: ["Inconsolata", ...defaultTheme.fontFamily.mono],
       },
       colors: Object.fromEntries(Object.entries(colors).map(([k, v]) =>
