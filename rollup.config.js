@@ -17,7 +17,7 @@ import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 //import Toml from "toml";
 
-import mdsvex from "./config/mdsvex";
+const mdsvex = require("./config/mdsvex");
 import rollupCrawl from "./config/plugin/rollup-plugin-crawl";
 
 const mode = process.env.NODE_ENV;
