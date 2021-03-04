@@ -3,7 +3,8 @@
   "compilerOptions": {
     "lib": ["DOM", "ES2017", "WebWorker"],
     "strict": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "typeRoots": ["./node_modules/@types", "./src/declarations"]
   },
   "include": ["src/**/*", "src/node_modules/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "static/*"]

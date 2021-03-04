@@ -21,9 +21,8 @@
 // (For more discussion on this issue and other workarounds, see
 // https://github.com/sveltejs/sapper/issues/904.)
 
-import * as Path from "path";
-
-import unistVisit from "unist-util-visit";
+const Path = require("path");
+const unistVisit = require("unist-util-visit");
 
 const getRoute = (filename) => {
   const parent = Path.relative("src/routes", Path.dirname(filename));
@@ -33,12 +32,16 @@ const getRoute = (filename) => {
     .join("/");
 };
 
-export default () => (tree, file) => {
+module.exports = () => (tree, file) => {
   const route = getRoute(file.filename);
   if (route.split(Path.sep)[0] === "..") return;
 
   unistVisit(tree, "element", (node) => {
-    if (node.tagName !== "a" || !node.properties.href?.startsWith("#")) return;
+    if (
+      node.tagName !== "Components.a" ||
+      !node.properties.href?.startsWith("#")
+    )
+      return;
     node.properties.href = `/${route}/${node.properties.href}`;
   });
 };

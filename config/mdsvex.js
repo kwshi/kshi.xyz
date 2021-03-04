@@ -1,24 +1,24 @@
-import { mdsvex } from "mdsvex";
+const { mdsvex } = require("mdsvex");
 
-import remarkMath from "remark-math-old";
-import remarkGithub from "remark-github";
-import remarkFootnotes from "remark-footnotes";
-import remarkToc from "remark-toc";
-import remarkSlug from "remark-slug";
-import remarkEmoji from "remark-emoji";
+const remarkMath = require("remark-math-old");
+const remarkGithub = require("remark-github");
+const remarkFootnotes = require("remark-footnotes");
+const remarkToc = require("remark-toc");
+const remarkSlug = require("remark-slug");
+const remarkEmoji = require("remark-emoji");
 //import rehypeKatex from "rehype-katex";
-import rehypeKatexSvelte from "rehype-katex-svelte";
+const rehypeKatexSvelte = require("rehype-katex-svelte");
 
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
+const rehypeAutolinkHeadings = require("rehype-autolink-headings");
 
-import remarkInjectToc from "./plugin/remark-inject-toc";
-import rehypeBaseWorkaround from "./plugin/rehype-base-workaround";
-import remarkGlobalToc from "./plugin/remark-global-toc";
+const remarkInjectToc = require("./plugin/remark-inject-toc");
+const rehypeBaseWorkaround = require("./plugin/rehype-base-workaround");
+const remarkGlobalToc = require("./plugin/remark-global-toc");
 
-import VMessage from "vfile-message";
+const VMessage = require("vfile-message");
 
-import Toml from "@iarna/toml";
-import Chalk from "chalk";
+const Toml = require("@iarna/toml");
+const Chalk = require("chalk");
 
 // - plugin to generate TOC as sidebar
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -31,7 +31,7 @@ const katexMacros = {
   "\\pdif": "\\operatorname \\partial\\!",
 };
 
-export default mdsvex({
+module.exports = mdsvex({
   smartypants: {
     dashes: "oldschool",
     backticks: true,
@@ -53,6 +53,7 @@ export default mdsvex({
         console.error(Chalk.stderr.redBright(msg.toString()));
     },
   ],
+  layout: "src/components/Mdsvex.svelte",
   frontmatter: {
     marker: "+",
     type: "toml",

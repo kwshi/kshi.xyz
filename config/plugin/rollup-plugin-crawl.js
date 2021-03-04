@@ -1,7 +1,7 @@
 import * as Path from "path";
 import { promises as Fs } from "fs";
 
-import * as Git from 'nodegit';
+import * as Git from "nodegit";
 
 import Toml from "@iarna/toml";
 import Chalk from "chalk";
@@ -18,7 +18,7 @@ import remarkExtractHeadings from "./remark-extract-headings";
 import remarkExtractIntro from "./remark-extract-intro";
 import remarkValidateFrontmatter from "./remark-validate-frontmatter";
 
-const crawl = async function*(path, prefix = []) {
+const crawl = async function* (path, prefix = []) {
   if ((await Fs.lstat(path)).isDirectory())
     for (const name of await Fs.readdir(path))
       yield* crawl(Path.join(path, name), [...prefix, name]);
@@ -50,14 +50,14 @@ const getTimeline = async ({ repo, commit, path }) => {
       }
     if (walk.reachedEndOfHistory) return;
   }
-}
+};
 
 const read = async ({ repo, commit, path, prefix }) => {
   const file = await remark()
     .use(remarkFrontmatter, ["toml"])
     .use(remarkExtractFrontmatter, { name: "frontmatter", toml: Toml.parse })
     .use(remarkValidateFrontmatter)
-    .use(remarkSmartypants, { dashes: 'oldschool', backticks: true })
+    .use(remarkSmartypants, { dashes: "oldschool", backticks: true })
     .use(remarkMath)
     .use(remarkExtractHeadings)
     .use(remarkExtractIntro)
@@ -65,9 +65,10 @@ const read = async ({ repo, commit, path, prefix }) => {
   for (const msg of file.messages) console.error(Chalk.stderr.redBright(msg));
 
   const timeline = await getTimeline({ repo, commit, path });
-  if (!timeline) console.error(Chalk.stderr.redBright(
-    `Failed to get Git timeline for ${path}`
-  ));
+  if (!timeline)
+    console.error(
+      Chalk.stderr.redBright(`Failed to get Git timeline for ${path}`)
+    );
 
   return { data: file.data, prefix, timeline };
 };
@@ -78,18 +79,20 @@ export default ({ alias, extensions }) => ({
   async load(src) {
     if (Path.basename(src) !== alias) return null;
 
-    const repo = await Git.Repository.open('.');
+    const repo = await Git.Repository.open(".");
     const commit = (await repo.getHeadCommit()).id();
 
     const contents = [];
     for await (const post of crawl(Path.dirname(src)))
       if (extensions.includes(Path.extname(post.path)))
-        contents.push(await read({
-          repo,
-          commit,
-          path: Path.relative('.', post.path),
-          prefix: post.prefix,
-        }));
+        contents.push(
+          await read({
+            repo,
+            commit,
+            path: Path.relative(".", post.path),
+            prefix: post.prefix,
+          })
+        );
     return `export default ${JSON.stringify(contents)}`;
   },
 });
