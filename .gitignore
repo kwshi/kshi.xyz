@@ -1,5 +1,5 @@
 .DS_Store
-/node_modules/
+node_modules/
 /src/node_modules/@sapper/
 yarn-error.log
 /__sapper__/
@@ -7,3 +7,5 @@ yarn-error.log
 # Local Netlify folder
 .netlify
 static/global.css
+
+!/src/node_modules
