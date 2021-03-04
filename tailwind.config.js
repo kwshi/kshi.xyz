@@ -1,5 +1,5 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require('tailwindcss/colors');
+const colors = require("tailwindcss/colors");
 
 module.exports = {
   purge: [],
@@ -7,12 +7,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Cabin", 'Barlow', ...defaultTheme.fontFamily.sans],
+        sans: ["Cabin", "Barlow", ...defaultTheme.fontFamily.sans],
         mono: ["Inconsolata", ...defaultTheme.fontFamily.mono],
       },
-      colors: Object.fromEntries(Object.entries(colors).map(([k, v]) =>
-        [k.toLowerCase(), v],
-      )),
+      colors: Object.fromEntries(
+        Object.entries(colors).map(([k, v]) => [k.toLowerCase(), v])
+      ),
     },
   },
   variants: {

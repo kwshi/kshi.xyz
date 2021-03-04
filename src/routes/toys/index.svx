@@ -2,7 +2,6 @@
 +++
 
 <script>
-import Math from '@/components/Math.svelte';
 
 </script>
 
