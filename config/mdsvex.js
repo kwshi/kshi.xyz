@@ -1,5 +1,7 @@
 const { mdsvex } = require("mdsvex");
 
+const Path = require("path");
+
 const remarkMath = require("remark-math-old");
 const remarkGithub = require("remark-github");
 const remarkFootnotes = require("remark-footnotes");
@@ -53,7 +55,7 @@ module.exports = mdsvex({
         console.error(Chalk.stderr.redBright(msg.toString()));
     },
   ],
-  layout: "src/components/Mdsvex.svelte",
+  layout: Path.join(__dirname, "../src/components/Mdsvex.svelte"),
   frontmatter: {
     marker: "+",
     type: "toml",
