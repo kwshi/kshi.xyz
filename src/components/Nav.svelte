@@ -32,7 +32,7 @@
 
 <style>
   nav {
-    @apply sticky -top-64 pt-64 z-20
+    @apply sticky -top-64 pt-64
     text-white
     transition-colors overflow-hidden;
     box-shadow: 0 1.25rem 1rem theme(colors.warmgray.900);
@@ -60,18 +60,13 @@
       box-shadow: inset 0 -1rem 0.5rem -0.5rem theme(colors.warmgray.900);
 
       a {
-        @apply px-4 py-2 block transition-all relative z-10;
+        @apply px-4 py-2 block transition-all relative;
 
         &::before {
-          @apply absolute inset-0 transition-opacity opacity-0 duration-300;
+          @apply absolute inset-0 transition-opacity opacity-0 duration-300
+            bg-gradient-to-t from-orange-300;
           content: "";
           z-index: -1;
-          background-image: linear-gradient(
-            to bottom,
-            transparent,
-            #ea9 75%,
-            transparent
-          );
         }
 
         &:hover::before {

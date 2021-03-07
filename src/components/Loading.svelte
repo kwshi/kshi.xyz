@@ -72,6 +72,8 @@
     w-full
         ease-linear;
 
+    z-index: -20;
+
     background-image: linear-gradient(to right, #111, #333);
     box-shadow: 1rem 0 1rem #333;
     mix-blend-mode: color-dodge;
