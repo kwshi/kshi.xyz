@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Kye Shi</title>
+	<title>Kye's Shinanigans</title>
 </svelte:head>
 
 Hi there---welcome to my website!  I'm Kye, a {age}-year old Asian-American

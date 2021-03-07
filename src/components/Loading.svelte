@@ -1,7 +1,7 @@
 <script>
   import { stores } from "@sapper/app";
 
-  const LOADING_ACCEL = 8e-6;
+  const LOADING_ACCEL = 4e-6;
   const LOADING_TAU = 0.3e3;
   const LOADING_MAX = 2 / 3;
 

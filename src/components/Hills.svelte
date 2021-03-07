@@ -1,5 +1,5 @@
 <script>
-  const SLOPE = 3;
+  const SLOPE = 2;
 
   const rand3 = () => (Math.random() + Math.random() + Math.random()) / 3;
 
@@ -11,7 +11,7 @@
   };
 
   const peaks = (count: number, spacing: number, height: number) =>
-    randTicks(count, spacing).map((x) => [x, rand3() * height]);
+    randTicks(count, spacing).map((x) => [x, rand3() * height, Math.random()]);
 
   const path = (x: number, h: number) => {
     const w = h * SLOPE;
@@ -21,6 +21,11 @@
   const front = peaks(32, 256, 96);
   const back = peaks(32, 128, 64);
 
+  const pks = peaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
+
+  const color = (t: number) =>
+    `rgb(${192 - 144 * t}, ${128 - 96 * t}, ${96 - 48 * t})`;
+
   let scroll = 0;
 </script>
 
@@ -28,12 +33,21 @@
 
 <svg width="100%" height="192" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1, 0, 0, -1, 0, 192)">
+    {#each pks as [x, y, z]}
+      <path
+        d={path(x * 128, y * 64 + z * 64 - scroll * (z / 2 + 1 / 4) + 32)}
+        fill={color(z)}
+      />
+    {/each}
+
+    <!--
     {#each back as [x, y]}
       <path fill="#875" d={path(x, Math.max(y + 16 - scroll / 2, 0))} />
     {/each}
     {#each front as [x, y]}
       <path fill="#504832" d={path(x, Math.max(0, y + 8 - scroll / 4))} />
     {/each}
+   -->
   </g>
 </svg>
 

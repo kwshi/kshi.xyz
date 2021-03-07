@@ -6,6 +6,9 @@ a = "hi"
 import Date from '@/components/resume/Date.svelte';
 </script>
 
+<svelte:head>
+<title>Resume | Kye's Shinanigans</title>
+</svelte:head>
 
 # Education
 

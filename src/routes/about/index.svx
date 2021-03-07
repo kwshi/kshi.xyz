@@ -4,6 +4,10 @@ import {age} from '@/lib/age';
 
 </script>
 
+<svelte:head>
+<title>About Me | Kye's Shinanigans</title>
+</svelte:head>
+
 # Fast facts
 
 Hi there!  I'm Kye (he/him/his), and here are some fast facts about me:

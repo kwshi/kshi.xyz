@@ -34,7 +34,7 @@
 <style>
   article {
     display: grid;
-    @apply gap-y-8;
+    @apply gap-y-8 mt-8;
 
     & > section {
       display: grid;
