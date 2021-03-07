@@ -34,7 +34,7 @@
   nav {
     @apply sticky -top-64 pt-64
     text-white
-    transition-colors overflow-hidden;
+    transition-colors overflow-x-hidden;
     box-shadow: 0 1.25rem 1rem theme(colors.warmgray.900);
 
     background-image: linear-gradient(
