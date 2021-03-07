@@ -1,107 +1,82 @@
 <script>
-  import { stores } from "@sapper/app";
+  import Loading from "./Loading.svelte";
+  import Hills from "./Hills.svelte";
 
   export let segment: string | undefined;
 
-  const LOADING_ACCEL = 8e-6;
-  const LOADING_TAU = 0.2e3;
-  const LOADING_MAX = 2 / 3;
-
-  let pos = 0;
-  let showLoad = false;
-
-  const { preloading } = stores();
-
-  const loadingStart = () => {
-    const start = Date.now();
-    showLoad = true;
-
-    const frame = () => {
-      const t = Date.now() - start;
-
-      if (!$preloading) {
-        loadingCleanup();
-        return;
-      }
-
-      pos = (1 - LOADING_TAU / (t + LOADING_TAU)) * LOADING_MAX;
-      requestAnimationFrame(frame);
-    };
-
-    requestAnimationFrame(frame);
-  };
-
-  const loadingCleanup = () => {
-    const start = Date.now();
-
-    const init = pos;
-    const speed = Math.pow(LOADING_MAX - init, 2) / LOADING_MAX / LOADING_TAU;
-
-    const frame = () => {
-      const t = Date.now() - start;
-
-      if (pos >= 1) {
-        setTimeout(() => {
-          showLoad = false;
-          setTimeout(() => (pos = 0), 300);
-        }, 75);
-        return;
-      }
-
-      pos = init + speed * t + (LOADING_ACCEL / 2) * t * t;
-      requestAnimationFrame(frame);
-    };
-
-    requestAnimationFrame(frame);
-  };
-
-  $: if ($preloading) loadingStart();
+  let scroll = 0;
 </script>
 
+<svelte:window bind:scrollY={scroll} />
+
 <nav>
-  <div class="loading" style="width: {pos * 100}%;" class:shown={showLoad} />
+  <Loading />
+  <Hills />
   <a
     href="/"
     title="Ha, get it?  It&rsquo;s funny because my last name is &ldquo;Shi&rdquo;."
+    style="transform: scale({Math.max(1, 2 - Math.max(0, scroll - 160) / 32)})"
     >Kye's <em>Shi</em>nanigans</a
   >
-  <a href="/about" class:now={segment === "about"}>about me</a>
-  <a href="/ramblings" class:now={segment === "ramblings"}>my ramblings</a>
-  <a href="/art" class:now={segment === "art"}>my art</a>
-  <a href="/toys" class:now={segment === "toys"}>my projects</a>
-  <a href="/contact" class:now={segment === "contact"}>contact me</a>
-  <a href="/resume" class:now={segment === "resume"}>my resume</a>
+  <ul>
+    <li><a href="/about" class:now={segment === "about"}>about me</a></li>
+    <li>
+      <a href="/ramblings" class:now={segment === "ramblings"}>my ramblings</a>
+    </li>
+    <li><a href="/art" class:now={segment === "art"}>my art</a></li>
+    <li><a href="/toys" class:now={segment === "toys"}>my projects</a></li>
+    <li><a href="/contact" class:now={segment === "contact"}>contact me</a></li>
+    <li><a href="/resume" class:now={segment === "resume"}>my resume</a></li>
+  </ul>
 </nav>
 
 <style>
   nav {
-    @apply flex flex-row 
-    shadow-lg
-    bg-lime-900
-    transition-colors;
-    overflow: hidden;
+    @apply sticky -top-64 pt-64 z-20
+    text-white
+    transition-colors overflow-hidden;
+    box-shadow: 0 1.25rem 1rem theme(colors.warmgray.900);
 
-    & > .loading {
-      @apply absolute left-0 top-0 bottom-0
-        bg-gradient-to-r from-lime-800 to-lime-700
-        opacity-0
-        transition-opacity
-        duration-300 
-        ease-linear;
+    background-image: linear-gradient(
+      to bottom,
+      #478 0%,
+      #6ab 33%,
+      #ab8 75%,
+      #e9a 100%
+    );
 
-      &.shown {
-        @apply transition-none opacity-100;
-      }
+    a {
+      color: inherit;
+      font-weight: 500;
+      text-shadow: 0 0 2px #221, 0 0 2px #221;
     }
 
-    & > a {
-      @apply px-4 py-2 text-cyan-50 z-10;
-      color: inherit;
-      &[href="/"] {
-        @apply font-bold;
-      }
-      &:hover {
-        @apply bg-opacity-50 bg-lime-500 text-white;
+    & > a[href="/"] {
+      @apply text-xl ml-4 block pt-2 relative origin-bottom-left;
+    }
+
+    & > ul {
+      @apply flex flex-row list-none m-0 p-0 relative;
+      box-shadow: inset 0 -1rem 0.5rem -0.5rem theme(colors.warmgray.900);
+
+      a {
+        @apply px-4 py-2 block transition-all relative z-10;
+
+        &::before {
+          @apply absolute inset-0 transition-opacity opacity-0 duration-300;
+          content: "";
+          z-index: -1;
+          background-image: linear-gradient(
+            to bottom,
+            transparent,
+            #ea9 75%,
+            transparent
+          );
+        }
+
+        &:hover::before {
+          @apply opacity-100;
+        }
       }
     }
   }
