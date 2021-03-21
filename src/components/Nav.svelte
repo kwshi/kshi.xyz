@@ -50,9 +50,10 @@
     background-image: linear-gradient(
       to bottom,
       #478 0,
-      #6ab 4rem,
-      #ab8 12rem,
-      #e9a 20rem
+      #6ab 6rem,
+      #9b9 12rem,
+      #ca8 16rem,
+      #e88 20rem
     );
 
     display: grid;
@@ -63,19 +64,15 @@
     & > .sun-wrapper {
       @apply absolute w-full h-full overflow-hidden;
       z-index: -10;
-      //mix-blend-mode: overlay;
       mix-blend-mode: color-dodge;
       clip-path: margin-box;
       clip: rect(auto, auto, auto, auto);
       & > .sun {
-        @apply w-32 h-32 absolute 
+        @apply w-24 h-24 absolute 
           rounded-full right-1/3 top-40;
-        background-image: radial-gradient(
-          theme(colors.rose.600),
-          theme(colors.rose.900)
-        );
+        background-color: #f34;
         position: fixed;
-        box-shadow: 0 0 32rem 8rem theme(colors.red.600);
+        box-shadow: 0 0 32rem 8rem #932;
         z-index: -10;
       }
     }

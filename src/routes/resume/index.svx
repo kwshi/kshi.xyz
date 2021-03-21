@@ -49,8 +49,8 @@ import Date from '@/components/resume/Date.svelte';
 ## Programming languages
 
 - Proficient: OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
-- Competent: Go, C/C++, Java, SQL
-- Basic: Haskell, Swift, Factor, Elvish, Mathematica
+- Competent: Go, C/C++, Java, SQL, Haskell
+- Basic: Swift, Factor, Elvish, Mathematica
 
 ## Technologies
 
