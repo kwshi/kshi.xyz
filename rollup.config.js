@@ -1,18 +1,18 @@
 import * as Path from "path";
 import * as Fs from "fs";
 
-import alias from "@rollup/plugin-alias";
-import resolve from "@rollup/plugin-node-resolve";
-import replace from "@rollup/plugin-replace";
-import commonjs from "@rollup/plugin-commonjs";
+import rollupAlias from "@rollup/plugin-alias";
+import rollupResolve from "@rollup/plugin-node-resolve";
+import rollupReplace from "@rollup/plugin-replace";
+import rollupCjs from "@rollup/plugin-commonjs";
 import rollupGlob from "rollup-plugin-glob";
-import url from "@rollup/plugin-url";
-import svelte from "rollup-plugin-svelte";
-import babel from "@rollup/plugin-babel";
-import { terser } from "rollup-plugin-terser";
+import rollupUrl from "@rollup/plugin-url";
+import rollupSv from "rollup-plugin-svelte";
+import rollupBabel from "@rollup/plugin-babel";
+import { terser as rollupTerser } from "rollup-plugin-terser";
+import rollupTs from "@rollup/plugin-typescript";
 
 import * as SvPre from "svelte-preprocess";
-import typescript from "@rollup/plugin-typescript";
 import config from "sapper/config/rollup.js";
 import pkg from "./package.json";
 //import Toml from "toml";
@@ -33,12 +33,6 @@ const preprocess = [
   }),
 ];
 
-const watchCss = {
-  buildStart() {
-    this.addWatchFile("static/global.css");
-  },
-};
-
 const onwarn = (warning, onwarn) =>
   (warning.code === "MISSING_EXPORT" && /'preload'/.test(warning.message)) ||
   (warning.code === "CIRCULAR_DEPENDENCY" &&
@@ -46,49 +40,58 @@ const onwarn = (warning, onwarn) =>
   warning.code === "THIS_IS_UNDEFINED" ||
   onwarn(warning);
 
-const posts = rollupCrawl({
-  alias: "@@posts",
-  extensions: [".svx"],
-});
+const sapperPlugins = ({ server }) => [
+  rollupAlias({
+    entries: {
+      "@": Path.join(__dirname, "src"),
+    },
+  }),
+  rollupCrawl({
+    alias: "@@posts",
+    extensions: [".svx"],
+  }),
+  {
+    buildStart() {
+      this.addWatchFile("static/global.css");
+    },
+  },
+  rollupSv({
+    extensions,
+    preprocess,
+    compilerOptions: {
+      dev,
+      hydratable: true,
+      generate: server ? "ssr" : undefined,
+    },
+    emitCss: !server,
+  }),
+  rollupUrl({
+    sourceDir: Path.resolve(__dirname, "src/node_modules/images"),
+    publicPath: "/client/",
+  }),
+  rollupResolve({
+    browser: true,
+    dedupe: ["svelte"],
+  }),
+  rollupCjs(),
+
+  rollupTs({ sourceMap: dev }),
+];
+
+const watch = {
+  // https://github.com/rollup/rollup/issues/1666
+  chokidar: { usePolling: true },
+};
 
 export default {
   client: {
     input: config.client.input().replace(/\.js$/, ".ts"),
     output: config.client.output(),
+    watch,
     plugins: [
-      alias({
-        entries: {
-          "@": Path.join(__dirname, "src"),
-        },
-      }),
-      posts,
-      replace({
-        "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      watchCss,
-      svelte({
-        extensions,
-        preprocess,
-        compilerOptions: {
-          dev,
-          hydratable: true,
-        },
-      }),
-      url({
-        sourceDir: Path.resolve(__dirname, "src/node_modules/images"),
-        publicPath: "/client/",
-      }),
-      resolve({
-        browser: true,
-        dedupe: ["svelte"],
-      }),
-      commonjs(),
-      typescript({ sourceMap: dev }),
-      //rollupGlob(),
-
+      ...sapperPlugins({ server: false }),
       legacy &&
-        babel({
+        rollupBabel({
           extensions: [".js", ".mjs", ".html", ".svelte"],
           babelHelpers: "runtime",
           exclude: ["node_modules/@babel/**"],
@@ -110,11 +113,7 @@ export default {
             ],
           ],
         }),
-
-      !dev &&
-        terser({
-          module: true,
-        }),
+      !dev && rollupTerser({ module: true }),
     ],
 
     preserveEntrySignatures: false,
@@ -124,43 +123,8 @@ export default {
   server: {
     input: { server: config.server.input().server.replace(/\.js$/, ".ts") },
     output: config.server.output(),
-    watch: {
-      chokidar: { usePolling: true },
-    },
-    plugins: [
-      posts,
-      alias({
-        entries: {
-          "@": Path.join(__dirname, "src"),
-        },
-      }),
-      replace({
-        "process.browser": false,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      watchCss,
-      svelte({
-        extensions,
-        preprocess,
-        compilerOptions: {
-          dev,
-          generate: "ssr",
-          hydratable: true,
-        },
-        emitCss: false,
-      }),
-      url({
-        sourceDir: Path.resolve(__dirname, "src/node_modules/images"),
-        publicPath: "/client/",
-        emitFiles: false, // already emitted by client build
-      }),
-      resolve({
-        dedupe: ["svelte"],
-      }),
-      commonjs(),
-      typescript({ sourceMap: dev }),
-      //rollupGlob(),
-    ],
+    watch,
+    plugins: [...sapperPlugins({ server: true })],
     external: Object.keys(pkg.dependencies).concat(
       require("module").builtinModules
     ),
@@ -173,14 +137,10 @@ export default {
     input: config.serviceworker.input().replace(/\.js$/, ".ts"),
     output: config.serviceworker.output(),
     plugins: [
-      resolve(),
-      replace({
-        "process.browser": true,
-        "process.env.NODE_ENV": JSON.stringify(mode),
-      }),
-      commonjs(),
-      typescript({ sourceMap: dev }),
-      !dev && terser(),
+      rollupResolve(),
+      rollupCjs(),
+      rollupTs({ sourceMap: dev }),
+      !dev && rollupTerser(),
     ],
 
     preserveEntrySignatures: false,
