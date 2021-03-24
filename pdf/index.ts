@@ -92,7 +92,7 @@ const initPptr = async () => {
     args: Chrome.args,
     defaultViewport: Chrome.defaultViewport,
     executablePath: await Chrome.executablePath,
-    headless: Chrome.headless || !opts.browser || true,
+    headless: !opts.browser,
     ignoreHTTPSErrors: true,
   });
   return { browser, page: await browser.newPage() };
