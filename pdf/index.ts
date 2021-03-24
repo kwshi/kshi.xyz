@@ -138,7 +138,7 @@ const main = async () => {
     (cache.cssEl = await pptr.page.addStyleTag({
       content: (cache.css = await buildPcss()),
     }));
-  render();
+  await render();
   logger.info("ready");
 
   if (opts.watch) {
@@ -150,14 +150,14 @@ const main = async () => {
         ),
         loadPcss(),
       ]);
-      render();
+      await render();
       logger.info("done");
     });
     watch(mdPath, async () => {
       logger.info("md changed, rebuilding...");
       await loadMd();
       await loadPcss();
-      render();
+      await render();
       logger.info("done");
     });
   } else await pptr.browser.close();
