@@ -95,6 +95,7 @@ devDependencies:
   unist-util-is: 4.0.4
   unist-util-map: 2.0.1
   unist-util-visit: 2.0.3
+  vfile: 4.2.1
   vfile-message: 2.0.4
   watch: 1.0.2
   winston: 3.3.3
@@ -6267,6 +6268,7 @@ specifiers:
   unist-util-is: ^4.0.4
   unist-util-map: ^2.0.1
   unist-util-visit: ^2.0.3
+  vfile: ^4.2.1
   vfile-message: ^2.0.4
   watch: ^1.0.2
   winston: ^3.3.3

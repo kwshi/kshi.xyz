@@ -19,6 +19,7 @@ import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import rehypeStringify from "rehype-stringify";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
+import rehypeInjectHeading from "./rehype-inject-heading";
 
 import unistVisit from "unist-util-visit";
 import unistIs from "unist-util-is";
@@ -79,6 +80,7 @@ const initMd = () => {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeRaw)
     .use(rehypeKatex)
+    .use(rehypeInjectHeading)
     .use(rehypeStringify);
 
   return async () =>

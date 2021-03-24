@@ -34,6 +34,7 @@ const katexMacros = {
 };
 
 module.exports = mdsvex({
+  extensions: [".svx", ".md"],
   smartypants: {
     dashes: "oldschool",
     backticks: true,

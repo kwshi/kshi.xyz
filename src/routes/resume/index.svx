@@ -1,8 +1,30 @@
 +++
 title = "Resume"
-
 [resume]
-name = "Kye W. Shi"
+name = "Kye Shi"
+location = 'Claremont, CA'
+url = 'https://kshi.xyz'
+email = 'kwshi@hmc.edu'
+phone = '+1 (909) 575-8588'
+
+[[links]]
+icon = "lab la-github-alt"
+name = "github"
+label = "kwshi"
+url = "https://github.com/kwshi"
+
+[[links]]
+icon = "lab la-twitter"
+name = "twitter"
+label = "kyewshi"
+url = "https://twitter.com/kyewshi"
+
+[[links]]
+icon = "luma-star"
+name = "luma"
+label = "kye"
+url = "https://lu.ma/kye"
+
 +++
 
 # Education
@@ -12,27 +34,27 @@ name = "Kye W. Shi"
 - B.S., Joint Math & Computer Science, Class of 2022
 - Dean's List, GPA 4.0
 
-## Relevant coursework (CS)
+## Coursework Highlights (Computer Science)
 
 - Data Structures & Algorithms
 - Computability & Formal Logic
 - Complexity Theory
-- Digital Electronics & Computer Engineering
+- Digital Electronics & Computer Architecture
 
-## Relevant coursework (Math)
+## Coursework Highlights (Math)
 
-- Abstract Algebra
+- Abstract Algebra I
 - Algebraic Geometry
 - Representation Theory
 - Advanced Linear Algebra
-- Differential Equations[^ex]
 - Multivariable Calculus
+- Differential Equations[^ex]
 - Discrete Math[^ex]
-- Real Analysis
+- Real Analysis I, II
 - Measure Theory
 - Complex Analysis
 
-## Relevant coursework (Physics)
+## Coursework Highlights (Physics)
 
 - Special Relativity[^ex]
 - Quantum Mechanics
@@ -41,44 +63,49 @@ name = "Kye W. Shi"
 
 [^ex]: qualified for exemption
 
-# Skills
+# Software Skills
 
 ## Programming languages
 
-- Proficient: OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+- **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
 
-- Competent: Go, C/C++, Java, SQL, Haskell
+- **Competent:** Go, C/C++, Java, SQL, Haskell
 
-- Basic: Swift, Factor, Elvish, Mathematica
+- **Basic:** Swift, Factor, Elvish, Mathematica
 
 ## Technologies
 
 - 3D modeling/CAD: OpenSCAD, SolveSpace
-- Web: React, Redux, HTML/CSS
-- Typesetting: $\LaTeX$
+- Web: React/Next.js/Redux, Svelte/Sapper, HTML/CSS
+- Typesetting & diagrams: $\LaTeX$, TikZ
 - Systems: Linux, Make, Docker
 - Databases: PostgreSQL
 - Hardware: Arduino, Cura (3D printing)
 
-# Work
+# Work (Software)
 
 ### Bloomberg <small>Summer Intern</small> <time>June--Sep. 2019</time>
 
-  - Developed tool to automatically generate XML schema definitions based on
-    OCaml type declarations
+  - Developed a tool that generates [XML schema definition][xsd] code for API
+    protocols based on OCaml type declarations
 
-  - Created web-based OCaml library documentation browser, now used
-    ubiquitously by OCaml developers at Bloomberg
+  - Set up a web-based platform for searching/navigating OCaml library
+    documentation using [`odoc`][odoc], now used ubiquitously among OCaml
+    developers at Bloomberg
+
+[xsd]: https://en.wikipedia.org/wiki/XML_Schema_(W3C)
+[odoc]: https://github.com/ocaml/odoc
 
 ### Bloomberg <small>Summer Intern</small> <time>May--Dec. 2020</time>
 
-  - Developed tooling enhancements for an internal domain-specific language:
+  - Implemented language features & developer tooling for an internal
+    programming language
 
     - Syntax tree pretty-printer
     - Proof-of-concept [language server][lsp]
     - Schema-driven code-generation tool
 
-  - Created a NLP-capable search platform for financial contracts
+  - Created an NLP-capable search platform for financial contracts
 
 <!-- - **Luma**, Intern <time>Jan. 2021--</time> -->
 

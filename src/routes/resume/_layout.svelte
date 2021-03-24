@@ -1,5 +1,3 @@
+<a href="/cv.pdf">PDF</a>
 
-
-<a href='/cv.pdf'>PDF</a>
-
-<slot/>
+<slot />

@@ -7,5 +7,6 @@ yarn-error.log
 # Local Netlify folder
 .netlify
 static/global.css
+static/cv.pdf
 
 !/src/node_modules
