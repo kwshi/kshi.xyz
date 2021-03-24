@@ -14,7 +14,7 @@
     "build:export": "sapper export --ext '.svx .svelte .html' --legacy",
     "build:pcss": "postcss -o static/global.css src/assets/global.pcss",
     "build:resume": "ts-node ./pdf",
-    "build": "run-p build:*",
+    "build": "run-s build:pcss build:resume build:export",
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
