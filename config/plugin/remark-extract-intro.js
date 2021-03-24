@@ -1,6 +1,5 @@
 import unistIs from "unist-util-is";
 import unified from "unified";
-import remark from "remark";
 import remarkRehype from "remark-rehype";
 import rehypeKatex from "rehype-katex";
 import rehypeStringify from "rehype-stringify";

@@ -1,22 +1,16 @@
 +++
-a = "hi"
+title = "Resume"
+
+[resume]
+name = "Kye W. Shi"
 +++
-
-<script>
-import Date from '@/components/resume/Date.svelte';
-</script>
-
-<svelte:head>
-<title>Resume | Kye's Shinanigans</title>
-</svelte:head>
 
 # Education
 
-**Harvey Mudd College** <Date>Aug. 2017--[May 2022]</Date>
+### Harvey Mudd College <time>August 2017--[May 2022]</time>
 
-- Class of 2022
-- B.S., Joint Math & Computer Science
-- Dean's List
+- B.S., Joint Math & Computer Science, Class of 2022
+- Dean's List, GPA 4.0
 
 ## Relevant coursework (CS)
 
@@ -24,15 +18,18 @@ import Date from '@/components/resume/Date.svelte';
 - Computability & Formal Logic
 - Complexity Theory
 - Digital Electronics & Computer Engineering
-- Computer Science Clinic
 
 ## Relevant coursework (Math)
 
-- Abstract Algebra, Algebraic Geometry, Representation Theory
+- Abstract Algebra
+- Algebraic Geometry
+- Representation Theory
 - Advanced Linear Algebra
-- Differential Equations[^ex], Multivariable Calculus
+- Differential Equations[^ex]
+- Multivariable Calculus
 - Discrete Math[^ex]
-- Real Analysis, Measure Theory
+- Real Analysis
+- Measure Theory
 - Complex Analysis
 
 ## Relevant coursework (Physics)
@@ -49,7 +46,9 @@ import Date from '@/components/resume/Date.svelte';
 ## Programming languages
 
 - Proficient: OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+
 - Competent: Go, C/C++, Java, SQL, Haskell
+
 - Basic: Swift, Factor, Elvish, Mathematica
 
 ## Technologies
@@ -63,54 +62,55 @@ import Date from '@/components/resume/Date.svelte';
 
 # Work
 
-## Software
-
-- **Bloomberg**, Summer Intern <Date>June--Sep. 2019</Date>
+### Bloomberg <small>Summer Intern</small> <time>June--Sep. 2019</time>
 
   - Developed tool to automatically generate XML schema definitions based on
     OCaml type declarations
+
   - Created web-based OCaml library documentation browser, now used
     ubiquitously by OCaml developers at Bloomberg
 
-- **Bloomberg**, Summer Intern <Date>May--Dec. 2020</Date>
+### Bloomberg <small>Summer Intern</small> <time>May--Dec. 2020</time>
 
   - Developed tooling enhancements for an internal domain-specific language:
 
-    - Auto-formatter using syntax tree (a la [prettier][prettier])
+    - Syntax tree pretty-printer
     - Proof-of-concept [language server][lsp]
-    - Boilerplate code generator from XML schema definitions
+    - Schema-driven code-generation tool
 
-  - Created a Solr-based search platform for financial contracts with
-    NLP-capable search queries
+  - Created a NLP-capable search platform for financial contracts
 
-<!-- - **Luma**, Intern <Date>Jan. 2021--</Date> -->
+<!-- - **Luma**, Intern <time>Jan. 2021--</time> -->
 
 
 [lsp]: https://microsoft.github.io/language-server-protocol/
 [prettier]: https://prettier.io/
 
-## Teaching
+# Teaching
 
-- [**MathILy**][mathily], Assistant Instructor <Date>July 2020</Date>
+### [**MathILy**][mathily] <small>Assistant Instructor</small> <time>July 2020</time>
 
-  - Helped develop & teach [inquiry-based] curriculum in linear algebra,
+  - Helped develop & teach [inquiry-based][ibl] curriculum in linear algebra,
     discrete math, and [origami][origami-wiki] [mathematics][origametry]
+
   - Taught "bite-sized", week-long courses on:
+
     - Surreal numbers
     - Finite state automata
     - Algorithms
-  - Led hour-long exploration on the Exact Cover Problem (termed the "sushi
-    problem") & a reduction from Sudoku
 
-- [**U.S. Physics Team**][usphysics], Junior Coach <Date>Summer 2019--</Date>
+  - Led an hour-long exploration on the Exact Cover Problem and how to use it
+    to solve Sudoku (a.k.a. a _reduction_ from Sudoku)
+
+### [**U.S. Physics Team**][usphysics] <small>Junior Coach</small> <time>Summer 2019--</time>
 
   - Helped write, proofread, & provide illustrations for problems for the
     annual $F=ma$ & USAPhO competitions
   - Taught lessons in olympiad-level electromagnetics, lab techniques, and
     mechanics at summer training camp
 
-- Grutoring
-- Independent tutoring
+### Grutoring
+### Independent tutoring
 
 [mathily]: http://mathily.org/
 [ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
@@ -119,26 +119,29 @@ import Date from '@/components/resume/Date.svelte';
 
 [usphysics]: https://aapt.org/physicsteam/2021/registration.cfm
 
-## Research
+# Research & Publications
 
-- Physics
-- Number theory
+### [Primitive root biases for twin primes II][prbtp2] <small>S. R. Garcia, G. Udell, **K. Shi**</small> <time>June 2019</time>
 
-# Projects
+[prbtp2]: https://arxiv.org/abs/1906.05927
 
-- [**Hyperschedule**][hyperschedule], maintainer
+
+# Software Projects
+
+### [Hyperschedule][hyperschedule] <small>maintainer</small> <time>2019--now</time>
 
   - Tool for browsing courses & planning schedules for students at the
     [5Cs][5cs]
+
   - Used ubiquitously by 5C students (1,000+ students according to analytics
     data)
 
-- [**Slick**][slick], co-creator
+### [Slick][slick] <small>co-creator</small> <time>September 2020</time>
 
   - Statically-typed, [_row-polymorphic_][row-polymorphism], functional
     programming language created for the [2020 Repl.it Programming Language
-    Competition][replit-jam], meant to combine the type-safety of ML/Haskell
-    with the flexibility & ease-of-use of Python
+    Competition][replit-jam], meant to combine the ML/Haskell-style type-safety
+    with Python's accessibility
 
 [hyperschedule]: https://github.com/MuddCreates/hyperschedule
 [slick]: https://github.com/kwshi/slick

@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         sans: ["Cabin", "Barlow", ...defaultTheme.fontFamily.sans],
         mono: ["Inconsolata", ...defaultTheme.fontFamily.mono],
+        serif: ["Lora", ...defaultTheme.fontFamily.mono],
       },
       colors: Object.fromEntries(
         Object.entries(colors).map(([k, v]) => [k.toLowerCase(), v])

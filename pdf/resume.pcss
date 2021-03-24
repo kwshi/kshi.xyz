@@ -1,0 +1,122 @@
+// vi: ft=scss
+
+@import url("https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css");
+@import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,500;1,500&family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap");
+
+@page {
+  size: letter portrait;
+  margin: 0.375in 0;
+}
+
+body {
+  @apply font-sans text-xs relative leading-5 tracking-wide;
+  -webkit-print-color-adjust: exact;
+  margin: 0 0.75in;
+  //font-family: 'Catamaran';
+  //font-family: 'Alegreya Sans SC';
+  //font-family: 'Mukta';
+  //font-family: 'Karla';
+  //font-family: 'Fira Sans';
+}
+
+h1 {
+  @apply mb-0
+  font-medium
+  text-xl
+  lowercase 
+  tracking-widest
+  text-amber-700;
+
+  &::before,
+  &::after {
+    @apply flex-grow
+    border-0 border-b border-solid border-amber-300;
+    content: "";
+  }
+
+  &::before {
+    @apply mr-4;
+  }
+  &::after {
+    @apply ml-4;
+  }
+
+  font-family: "Alegreya Sans SC";
+}
+
+h2 {
+  @apply lowercase text-base font-medium text-amber-700 tracking-wider;
+  font-family: "Alegreya Sans SC";
+}
+
+h1 {
+  @apply items-center;
+}
+h2,
+h3,
+h4 {
+  @apply items-baseline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply mt-2 flex flex-row pb-32 -mb-32;
+  break-inside: avoid;
+
+  small {
+    @apply ml-2 text-warmgray-600 lowercase rounded py-1 font-normal text-sm;
+    font-family: "Alegreya Sans SC";
+    //font-size: 0.625rem;
+    //line-height: .75rem;
+  }
+
+  time {
+    @apply text-gray-600 text-sm float-right font-normal lowercase 
+    flex-grow flex flex-row items-baseline;
+
+    font-family: "Alegreya Sans SC";
+
+    &::before {
+      @apply block 
+      flex-grow 
+      border-0 border-b border-dotted border-warmgray-200
+      ml-2 mr-2;
+      content: "";
+    }
+  }
+}
+
+ul,
+p {
+  @apply my-0;
+  //break-inside: avoid;
+}
+
+ul {
+  @apply pl-4;
+  li {
+    @apply ml-2;
+    &::marker {
+      @apply text-amber-400;
+    }
+    p {
+      @apply my-0;
+    }
+  }
+
+  &.compact {
+    column-count: 2;
+    column-gap: 1rem;
+  }
+}
+
+.katex {
+  @apply tracking-normal;
+  font-size: 1.0625em;
+}
+
+a {
+  @apply text-cyan-700 no-underline;
+}
