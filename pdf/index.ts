@@ -90,8 +90,10 @@ const initPptr = async () => {
   //const browser = await Pptr.launch({ headless: !opts.browser });
   const browser = await Chrome.puppeteer.launch({
     args: Chrome.args,
+    defaultViewport: Chrome.defaultViewport,
     executablePath: await Chrome.executablePath,
-    headless: !opts.browser,
+    headless: Chrome.headless && !opts.browser,
+    ignoreHTTPSErrors: true,
   });
   return { browser, page: await browser.newPage() };
 };

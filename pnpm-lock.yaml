@@ -30,7 +30,7 @@ devDependencies:
   '@types/yargs-parser': 20.2.0
   autoprefixer: 10.2.4_postcss@8.2.4
   chalk: 4.1.0
-  chrome-aws-lambda: 8.0.0
+  chrome-aws-lambda: 8.0.0_puppeteer-core@8.0.0
   hast-util-from-string: 1.0.4
   hast-util-select: 4.0.2
   hast-util-to-mdast: 7.1.3
@@ -53,6 +53,7 @@ devDependencies:
   prettier: 2.2.1
   prettier-plugin-svelte: 2.1.1_prettier@2.2.1+svelte@3.32.1
   puppeteer: 8.0.0
+  puppeteer-core: 8.0.0
   rehype: 11.0.0
   rehype-autolink-headings: 5.0.1
   rehype-katex: 4.0.0
@@ -1880,9 +1881,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==
-  /chrome-aws-lambda/8.0.0:
+  /chrome-aws-lambda/8.0.0_puppeteer-core@8.0.0:
     dependencies:
       lambdafs: 2.0.3
+      puppeteer-core: 8.0.0
     dev: true
     engines:
       node: '>= 10.16'
@@ -4531,6 +4533,25 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
+  /puppeteer-core/8.0.0:
+    dependencies:
+      debug: 4.3.1
+      devtools-protocol: 0.0.854822
+      extract-zip: 2.0.1
+      https-proxy-agent: 5.0.0
+      node-fetch: 2.6.1
+      pkg-dir: 4.2.0
+      progress: 2.0.3
+      proxy-from-env: 1.1.0
+      rimraf: 3.0.2
+      tar-fs: 2.1.1
+      unbzip2-stream: 1.4.3
+      ws: 7.4.4
+    dev: true
+    engines:
+      node: '>=10.18.1'
+    resolution:
+      integrity: sha512-kRTiGh42+4eiw9tl489p//8Zpg3LWmz0K3mOpv0qj5PsCV7jE43SLIi0E50suLh8OghXsFhJFoE98vEmXUnDew==
   /puppeteer/8.0.0:
     dependencies:
       debug: 4.3.1
@@ -6203,6 +6224,7 @@ specifiers:
   prettier: ^2.2.1
   prettier-plugin-svelte: ^2.1.1
   puppeteer: ^8.0.0
+  puppeteer-core: ^8.0.0
   rehype: ^11.0.0
   rehype-autolink-headings: ^5.0.1
   rehype-katex: ^4.0.0
