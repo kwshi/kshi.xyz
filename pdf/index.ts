@@ -1,7 +1,6 @@
 /// <reference types='./remark-smartypants'/>
 import type * as Unist from "unist";
 
-import Chrome from "chrome-aws-lambda";
 import Pptr from "puppeteer";
 import * as Fs from "fs/promises";
 import * as Toml from "@iarna/toml";
@@ -88,13 +87,6 @@ const initMd = () => {
 
 const initPptr = async () => {
   const browser = await Pptr.launch({ headless: !opts.browser });
-  //const browser = await Chrome.puppeteer.launch({
-  //  args: Chrome.args,
-  //  defaultViewport: Chrome.defaultViewport,
-  //  executablePath: await Chrome.executablePath,
-  //  headless: !opts.browser,
-  //  ignoreHTTPSErrors: true,
-  //});
   return { browser, page: await browser.newPage() };
 };
 
