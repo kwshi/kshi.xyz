@@ -1,8 +1,13 @@
 +++
+
+# vi: ft=markdown
+
 title = "Resume"
+
 [resume]
 name = "Kye Shi"
 location = 'Claremont, CA'
+pronouns = 'he/him/his'
 url = 'https://kshi.xyz'
 email = 'kwshi@hmc.edu'
 phone = '+1 (909) 575-8588'
@@ -10,19 +15,30 @@ phone = '+1 (909) 575-8588'
 [[links]]
 icon = "lab la-github-alt"
 name = "github"
-label = "kwshi"
+label = "GitHub"
+value = "kwshi"
 url = "https://github.com/kwshi"
+
+[[links]]
+icon = "lab la-gitlab"
+name = "gitlab"
+label = "GitLab"
+value = "kwshi"
+url = "https://gitlab.com/kwshi"
+
 
 [[links]]
 icon = "lab la-twitter"
 name = "twitter"
-label = "kyewshi"
+label = "Twitter"
+value = "kyewshi"
 url = "https://twitter.com/kyewshi"
 
 [[links]]
 icon = "luma-star"
 name = "luma"
-label = "kye"
+label = "Luma"
+value = "kye"
 url = "https://lu.ma/kye"
 
 +++
@@ -63,24 +79,18 @@ url = "https://lu.ma/kye"
 
 [^ex]: qualified for exemption
 
-# Software Skills
+# Research
 
-## Programming languages
+## Publications
 
-- **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+- S. R. Garcia, **K. Shi**, G. Udell.  
 
-- **Competent:** Go, C/C++, Java, SQL, Haskell
+  [*Primitive root bias for twin primes II: Schinzel-type theorems for totient
+  quotients and the sum-of-divisors function*.][prbtp2]
 
-- **Basic:** Swift, Factor, Elvish, Mathematica
+  Journal of Number Theory 208: 400--417 (2020).
 
-## Technologies
-
-- 3D modeling/CAD: OpenSCAD, SolveSpace
-- Web: React/Next.js/Redux, Svelte/Sapper, HTML/CSS
-- Typesetting & diagrams: $\LaTeX$, TikZ
-- Systems: Linux, Make, Docker
-- Databases: PostgreSQL
-- Hardware: Arduino, Cura (3D printing)
+[prbtp2]: https://arxiv.org/abs/1906.05927
 
 # Work (Software)
 
@@ -117,27 +127,35 @@ url = "https://lu.ma/kye"
 
 ### [**MathILy**][mathily] <small>Assistant Instructor</small> <time>July 2020</time>
 
-  - Helped develop & teach [inquiry-based][ibl] curriculum in linear algebra,
-    discrete math, and [origami][origami-wiki] [mathematics][origametry]
+- Helped develop & teach [inquiry-based][ibl] curriculum in linear algebra,
+  discrete math, and [origami][origami-wiki] [mathematics][origametry]
 
-  - Taught "bite-sized", week-long courses on:
+- Taught "bite-sized", week-long courses on:
 
-    - Surreal numbers
-    - Finite state automata
-    - Algorithms
+  - Surreal numbers
+  - Finite state automata
+  - Algorithms
 
-  - Led an hour-long exploration on the Exact Cover Problem and how to use it
-    to solve Sudoku (a.k.a. a _reduction_ from Sudoku)
+- Led an hour-long exploration on the Exact Cover Problem and how to use it to
+  solve Sudoku
 
 ### [**U.S. Physics Team**][usphysics] <small>Junior Coach</small> <time>Summer 2019--</time>
 
-  - Helped write, proofread, & provide illustrations for problems for the
-    annual $F=ma$ & USAPhO competitions
-  - Taught lessons in olympiad-level electromagnetics, lab techniques, and
-    mechanics at summer training camp
+- Helped write, proofread, & provide illustrations for problems for the annual
+  $F=ma$ & USAPhO competitions
 
-### Grutoring
-### Independent tutoring
+- Taught lessons in olympiad-level electromagnetics, lab techniques, and
+  mechanics at summer training camp
+
+### Harvey Mudd College <small>Student Grutor (grader + tutor)</small> <time>2018--2019</time>
+
+- Graded homework assignments & held tutoring sessions for fellow students in
+  previously-taken courses:
+
+  - Computability & Formal Logic
+  - Mechanics & Wave Motion
+
+
 
 [mathily]: http://mathily.org/
 [ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
@@ -145,13 +163,6 @@ url = "https://lu.ma/kye"
 [origametry]: http://origametry.net/omfiles/geoconst.html
 
 [usphysics]: https://aapt.org/physicsteam/2021/registration.cfm
-
-# Research & Publications
-
-### [Primitive root biases for twin primes II][prbtp2] <small>S. R. Garcia, G. Udell, **K. Shi**</small> <time>June 2019</time>
-
-[prbtp2]: https://arxiv.org/abs/1906.05927
-
 
 # Software Projects
 
@@ -176,15 +187,46 @@ url = "https://lu.ma/kye"
 [row-polymorphism]: https://en.wikipedia.org/wiki/Row_polymorphism
 [replit-jam]: https://repl.it/site/jam
 
+# Software Skills
+
+## Programming languages
+
+- **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+
+- **Competent:** Go, C/C++, Java, SQL, Haskell
+
+- **Basic:** Rust, Swift, Factor, Elvish, Mathematica
+
+## Technologies
+
+- 3D modeling/CAD: OpenSCAD, SolveSpace
+- Web: React/Next.js/Redux, Svelte/Sapper, HTML/CSS
+- Typesetting & diagrams: $\LaTeX$, TikZ
+- Systems: Linux (Ubuntu, Arch, NixOS, Void), Docker
+- Databases: PostgreSQL
+- Hardware: Arduino, Cura (3D printing)
+
+
+
 # Achievements
 
-- Advent of Code, 31st place (2019) & 53rd place (2020)
-- ACM ICPC, national
-- USAPhO
+- *Advent of Code* 31st place (2019), 53rd place (2020)
 
+- *ACM ICPC* North American Championships qualifier, 49th place nationwide
+  (2020)
+
+- *U.S. National Physics Olympiad* Gold Medal, [U.S. Physics Team
+  Member][usphysics-bio] (2017)
+
+- *International Physics Olympiad* Gold Medal (2017)
+
+[usphysics-bio]: https://www.aapt.org/physicsteam/2017/team.cfm?id=1007
+
+<!--
 # Extracurriculars
 
 - Ballroom dancing
 - Table tennis
 - Wheelthrowing
 - Drawing
+-->

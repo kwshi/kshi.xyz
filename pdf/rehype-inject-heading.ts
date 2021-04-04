@@ -4,8 +4,11 @@ import type * as VFile from "vfile";
 import hast from "hastscript";
 
 interface Data {
-  resume: Record<"name" | "location" | "email" | "url" | "phone", string>;
-  links: Record<"name" | "icon" | "label" | "url", string>[];
+  resume: Record<
+    "name" | "location" | "email" | "url" | "phone" | "pronouns",
+    string
+  >;
+  links: Record<"name" | "icon" | "label" | "value" | "url", string>[];
 }
 
 export default () => (tree: Unist.Node, file: VFile.VFile) => {
@@ -15,24 +18,34 @@ export default () => (tree: Unist.Node, file: VFile.VFile) => {
       hast("h1", data.resume.name),
       hast(
         "ul.contact",
-        data.links.map(({ name, icon, label, url }) =>
+        data.links.map(({ name, icon, label, value, url }) =>
           hast(
             "li",
             { class: name },
-            hast("a", { href: url }, [hast("i", { class: icon }), label])
+            hast("a", { href: url }, [
+              hast("i", { class: icon }),
+              `${label}: ${value}`,
+            ])
           )
         )
       ),
-      hast("div.subtitle", [
-        hast("a", { href: data.resume.url }, [
-          hast("i.las.la-home"),
-          data.resume.url,
-        ]),
-        hast("a", { href: `mailto:${data.resume.email}` }, [
-          hast("i.las.la-envelope"),
-          data.resume.email,
-        ]),
-        hast("span", [hast("i.las.la-phone"), data.resume.phone]),
+      hast("ul.subtitle", [
+        hast("li", data.resume.pronouns),
+        hast(
+          "li",
+          hast("a", { href: data.resume.url }, [
+            hast("i.las.la-home"),
+            data.resume.url,
+          ])
+        ),
+        hast(
+          "li",
+          hast("a", { href: `mailto:${data.resume.email}` }, [
+            hast("i.las.la-envelope"),
+            data.resume.email,
+          ])
+        ),
+        hast("li", [hast("i.las.la-phone"), data.resume.phone]),
       ]),
       hast("time", "last updated yesterday"),
     ])
