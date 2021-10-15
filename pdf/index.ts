@@ -23,6 +23,7 @@ import rehypeInjectHeading from "./rehype-inject-heading";
 
 import unistVisit from "unist-util-visit";
 import unistIs from "unist-util-is";
+import type * as mdast from "mdast";
 
 const logger = Winston.createLogger({
   format: Winston.format.combine(Winston.format.simple()),
@@ -58,10 +59,13 @@ const opts: {
   .help()
   .strict().argv;
 
+const unistIsMdastList = (node: Unist.Node): node is mdast.List =>
+  node.type === "list";
+
 const remarkCompactList = () => (tree: Unist.Node) =>
   unistVisit(tree, (node) => {
     if (
-      unistIs(node, "list") &&
+      unistIsMdastList(node) &&
       !node.spread &&
       Array.isArray(node.children) &&
       node.children.length > 1
