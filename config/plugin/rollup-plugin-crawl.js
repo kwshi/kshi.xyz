@@ -1,7 +1,7 @@
 import * as Path from "path";
 import { promises as Fs } from "fs";
 
-import * as Git from "nodegit";
+import Git from "nodegit";
 
 import Toml from "@iarna/toml";
 import Chalk from "chalk";

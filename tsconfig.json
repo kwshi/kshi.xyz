@@ -4,7 +4,8 @@
     "lib": ["DOM", "ES2017", "WebWorker"],
     "strict": true,
     "sourceMap": true,
-    "typeRoots": ["./node_modules/@types", "./src/declarations"]
+    "typeRoots": ["./node_modules/@types", "./src/declarations"],
+    "types": ["node"]
   },
   "include": ["src/**/*", "src/node_modules/**/*"],
   "exclude": ["node_modules/*", "__sapper__/*", "static/*"]
