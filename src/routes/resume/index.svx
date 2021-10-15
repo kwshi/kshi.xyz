@@ -27,19 +27,19 @@ value = "kwshi"
 url = "https://gitlab.com/kwshi"
 
 
-[[links]]
-icon = "lab la-twitter"
-name = "twitter"
-label = "Twitter"
-value = "kyewshi"
-url = "https://twitter.com/kyewshi"
+#[[links]]
+#icon = "lab la-twitter"
+#name = "twitter"
+#label = "Twitter"
+#value = "kyewshi"
+#url = "https://twitter.com/kyewshi"
 
-[[links]]
-icon = "luma-star"
-name = "luma"
-label = "Luma"
-value = "kye"
-url = "https://lu.ma/kye"
+#[[links]]
+#icon = "luma-star"
+#name = "luma"
+#label = "Luma"
+#value = "kye"
+#url = "https://lu.ma/kye"
 
 +++
 
@@ -67,8 +67,9 @@ url = "https://lu.ma/kye"
 - Differential Equations[^ex]
 - Discrete Math[^ex]
 - Real Analysis I, II
-- Measure Theory
+- Measure Theory (graduate-level)
 - Complex Analysis
+- Non-linear Big Data Analytics (summer)
 
 ## Coursework Highlights (Physics)
 
@@ -76,8 +77,10 @@ url = "https://lu.ma/kye"
 - Quantum Mechanics
 - Quantum Information
 - Electromagnetic Theory & Optics[^ex]
+- Classical Electrodynamics[^ip]
 
 [^ex]: qualified for exemption
+[^ip]: in progress
 
 # Research
 
@@ -96,71 +99,74 @@ url = "https://lu.ma/kye"
 
 ### Bloomberg <small>Summer Intern</small> <time>June--Sep. 2019</time>
 
-  - Developed a tool that generates [XML schema definition][xsd] code for API
-    protocols based on OCaml type declarations
+- Developed a tool that generates [XML schema definition][xsd] code for API
+  protocols based on OCaml type declarations
 
-  - Set up a web-based platform for searching/navigating OCaml library
-    documentation using [`odoc`][odoc], now used ubiquitously among OCaml
-    developers at Bloomberg
+- Set up a web-based platform for searching/navigating OCaml library
+  documentation using [`odoc`][odoc], now used ubiquitously among OCaml
+  developers at Bloomberg
 
 [xsd]: https://en.wikipedia.org/wiki/XML_Schema_(W3C)
 [odoc]: https://github.com/ocaml/odoc
 
 ### Bloomberg <small>Summer Intern</small> <time>May--Dec. 2020</time>
 
-  - Implemented language features & developer tooling for an internal
-    programming language
+- Implemented language features & developer tooling for an internal
+  programming language
 
-    - Syntax tree pretty-printer
-    - Proof-of-concept [language server][lsp]
-    - Schema-driven code-generation tool
+  - Syntax tree pretty-printer
+  - Proof-of-concept [language server][lsp]
+  - Schema-driven code-generation tool
 
-  - Created an NLP-capable search platform for financial contracts
+- Created an NLP-capable search platform for financial contracts
 
-<!-- - **Luma**, Intern <time>Jan. 2021--</time> -->
+### Luma <small>Intern</small> <time>Jan.--May 2021</time>
 
+- Developed various
 
 [lsp]: https://microsoft.github.io/language-server-protocol/
 [prettier]: https://prettier.io/
 
 # Teaching
 
-### [**MathILy**][mathily] <small>Assistant Instructor</small> <time>July 2020</time>
+### [**MathILy**][mathily] <small>Assistant Instructor</small> <time>July 2020, 2021</time>
 
-- Helped develop & teach [inquiry-based][ibl] curriculum in linear algebra,
-  discrete math, and [origami][origami-wiki] [mathematics][origametry]
+- Five-week, intensive [inquiry-based][ibl] summer math program for high school
+  students.  Co-taught two-week Root curriculum in linear algebra &amp;
+  discrete math, and two-week Branch curricula in [origami][origami-wiki]
+  [mathematics][origametry] and in persistent homology
 
-- Taught "bite-sized", week-long courses on:
+- Led hour-long exploration on reductions between Sudoku, Exact Cover, and
+  Graph Coloring
 
-  - Surreal numbers
-  - Finite state automata
+- Designed and taught one-week, "bite-sized" courses on:
+
+  - Complex Analysis
+  - Surreal Numbers
+  - Finite State Automata
   - Algorithms
+  - Random Walks
 
-- Led an hour-long exploration on the Exact Cover Problem and how to use it to
-  solve Sudoku
+[mathily]: http://mathily.org/
+[ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
+[origami-wiki]: https://en.wikipedia.org/wiki/Mathematics_of_paper_folding
+[origametry]: http://origametry.net/omfiles/geoconst.html
 
-### [**U.S. Physics Team**][usphysics] <small>Junior Coach</small> <time>Summer 2019--</time>
+### [**U.S. Physics Team**][usphysics] <small>Junior Coach</small> <time>Summer 2019--now</time>
 
-- Helped write, proofread, & provide illustrations for problems for the annual
-  $F=ma$ & USAPhO competitions
+- Contributed problems &amp; diagram illustrations to, and helped proofread,
+  the annual $F=ma$ &amp; USAPhO physics competitions for high school students
 
-- Taught lessons in olympiad-level electromagnetics, lab techniques, and
-  mechanics at summer training camp
+- Taught week-long mini-courses at summer training camp in olympiad-level
+  electromagnetics, lab techniques, mechanics
 
-### Harvey Mudd College <small>Student Grutor (grader + tutor)</small> <time>2018--2019</time>
+### Harvey Mudd College <small>Student Grutor</small> <time>2018--2019</time>
 
 - Graded homework assignments & held tutoring sessions for fellow students in
   previously-taken courses:
 
   - Computability & Formal Logic
   - Mechanics & Wave Motion
-
-
-
-[mathily]: http://mathily.org/
-[ibl]: https://en.wikipedia.org/wiki/Inquiry-based_learning
-[origami-wiki]: https://en.wikipedia.org/wiki/Mathematics_of_paper_folding
-[origametry]: http://origametry.net/omfiles/geoconst.html
 
 [usphysics]: https://aapt.org/physicsteam/2021/registration.cfm
 
@@ -176,10 +182,11 @@ url = "https://lu.ma/kye"
 
 ### [Slick][slick] <small>co-creator</small> <time>September 2020</time>
 
-  - Statically-typed, [_row-polymorphic_][row-polymorphism], functional
-    programming language created for the [2020 Repl.it Programming Language
-    Competition][replit-jam], meant to combine the ML/Haskell-style type-safety
-    with Python's accessibility
+  - Designed &amp; implemented a statically-typed,
+    [_row-polymorphic_][row-polymorphism], functional programming language
+    created for the [2020 Repl.it Programming Language
+    Competition][replit-jam], combining ML/Haskell-style type-safety with
+    Python-style versatility/accessibility
 
 [hyperschedule]: https://github.com/MuddCreates/hyperschedule
 [slick]: https://github.com/kwshi/slick
@@ -193,20 +200,18 @@ url = "https://lu.ma/kye"
 
 - **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
 
-- **Competent:** Go, C/C++, Java, SQL, Haskell
+- **Competent:** Rust, Mathematica, Go, C/C++, Java, SQL, Haskell
 
-- **Basic:** Rust, Swift, Factor, Elvish, Mathematica
+- **Basic:** Swift, Factor, Elvish
 
 ## Technologies
 
 - 3D modeling/CAD: OpenSCAD, SolveSpace
-- Web: React/Next.js/Redux, Svelte/Sapper, HTML/CSS
+- Web: React/Next.js/Redux, Svelte, HTML/CSS
 - Typesetting & diagrams: $\LaTeX$, TikZ
-- Systems: Linux (Ubuntu, Arch, NixOS, Void), Docker
+- Systems: Linux (Void, NixOS, Arch, Ubuntu), Docker
 - Databases: PostgreSQL
 - Hardware: Arduino, Cura (3D printing)
-
-
 
 # Achievements
 

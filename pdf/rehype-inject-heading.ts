@@ -47,7 +47,7 @@ export default () => (tree: Unist.Node, file: VFile.VFile) => {
         ),
         hast("li", [hast("i.las.la-phone"), data.resume.phone]),
       ]),
-      hast("time", "last updated yesterday"),
+      hast("time", "last updated October 2021"), // TODO
     ])
   );
 };
