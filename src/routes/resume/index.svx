@@ -120,9 +120,11 @@ url = "https://gitlab.com/kwshi"
 
 - Created an NLP-capable search platform for financial contracts
 
+<!--
 ### Luma <small>Intern</small> <time>Jan.--May 2021</time>
 
 - Developed various
+-->
 
 [lsp]: https://microsoft.github.io/language-server-protocol/
 [prettier]: https://prettier.io/
@@ -175,7 +177,7 @@ url = "https://gitlab.com/kwshi"
 ### [Hyperschedule][hyperschedule] <small>maintainer</small> <time>2019--now</time>
 
   - Tool for browsing courses & planning schedules for students at the
-    [5Cs][5cs]
+    [Claremont Colleges][5cs]
 
   - Used ubiquitously by 5C students (1,000+ students according to analytics
     data)
