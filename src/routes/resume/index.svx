@@ -77,10 +77,28 @@ url = "https://gitlab.com/kwshi"
 - Quantum Mechanics
 - Quantum Information
 - Electromagnetic Theory & Optics[^ex]
-- Classical Electrodynamics[^ip]
+- Electromagnetic Fields[^ip]
 
 [^ex]: qualified for exemption
 [^ip]: in progress
+
+# Achievements
+
+- *Courtney S. Coleman Prize in Mathematics*, Harvey Mudd College (2019)
+
+- *Advent of Code* 31st place (2019), 53rd place (2020)
+
+- *ACM ICPC* North American Championships qualifier, 49th place nationwide
+  (2020)
+
+- *U.S. National Physics Olympiad* Gold Medal, [U.S. Physics Team
+  Member][usphysics-bio] (2017)
+
+- *International Physics Olympiad* Gold Medal (2017)
+
+[usphysics-bio]: https://www.aapt.org/physicsteam/2017/team.cfm?id=1007
+
+
 
 # Research
 
@@ -94,40 +112,6 @@ url = "https://gitlab.com/kwshi"
   Journal of Number Theory 208: 400--417 (2020).
 
 [prbtp2]: https://arxiv.org/abs/1906.05927
-
-# Work (Software)
-
-### Bloomberg <small>Summer Intern</small> <time>June--Sep. 2019</time>
-
-- Developed a tool that generates [XML schema definition][xsd] code for API
-  protocols based on OCaml type declarations
-
-- Set up a web-based platform for searching/navigating OCaml library
-  documentation using [`odoc`][odoc], now used ubiquitously among OCaml
-  developers at Bloomberg
-
-[xsd]: https://en.wikipedia.org/wiki/XML_Schema_(W3C)
-[odoc]: https://github.com/ocaml/odoc
-
-### Bloomberg <small>Summer Intern</small> <time>May--Dec. 2020</time>
-
-- Implemented language features & developer tooling for an internal
-  programming language
-
-  - Syntax tree pretty-printer
-  - Proof-of-concept [language server][lsp]
-  - Schema-driven code-generation tool
-
-- Created an NLP-capable search platform for financial contracts
-
-<!--
-### Luma <small>Intern</small> <time>Jan.--May 2021</time>
-
-- Developed various
--->
-
-[lsp]: https://microsoft.github.io/language-server-protocol/
-[prettier]: https://prettier.io/
 
 # Teaching
 
@@ -172,6 +156,43 @@ url = "https://gitlab.com/kwshi"
 
 [usphysics]: https://aapt.org/physicsteam/2021/registration.cfm
 
+
+
+
+# Work (Software)
+
+### Bloomberg <small>Summer Intern</small> <time>June--Sep. 2019</time>
+
+- Developed a tool that generates [XML schema definition][xsd] code for API
+  protocols based on OCaml type declarations
+
+- Set up a web-based platform for searching/navigating OCaml library
+  documentation using [`odoc`][odoc], now used ubiquitously among OCaml
+  developers at Bloomberg
+
+[xsd]: https://en.wikipedia.org/wiki/XML_Schema_(W3C)
+[odoc]: https://github.com/ocaml/odoc
+
+### Bloomberg <small>Summer Intern</small> <time>May--Dec. 2020</time>
+
+- Implemented language features & developer tooling for an internal
+  programming language
+
+  - Syntax tree pretty-printer
+  - Proof-of-concept [language server][lsp]
+  - Schema-driven code-generation tool
+
+- Created an NLP-capable search platform for financial contracts
+
+<!--
+### Luma <small>Intern</small> <time>Jan.--May 2021</time>
+
+- Developed various
+-->
+
+[lsp]: https://microsoft.github.io/language-server-protocol/
+[prettier]: https://prettier.io/
+
 # Software Projects
 
 ### [Hyperschedule][hyperschedule] <small>maintainer</small> <time>2019--now</time>
@@ -214,20 +235,6 @@ url = "https://gitlab.com/kwshi"
 - Systems: Linux (Void, NixOS, Arch, Ubuntu), Docker
 - Databases: PostgreSQL
 - Hardware: Arduino, Cura (3D printing)
-
-# Achievements
-
-- *Advent of Code* 31st place (2019), 53rd place (2020)
-
-- *ACM ICPC* North American Championships qualifier, 49th place nationwide
-  (2020)
-
-- *U.S. National Physics Olympiad* Gold Medal, [U.S. Physics Team
-  Member][usphysics-bio] (2017)
-
-- *International Physics Olympiad* Gold Medal (2017)
-
-[usphysics-bio]: https://www.aapt.org/physicsteam/2017/team.cfm?id=1007
 
 <!--
 # Extracurriculars
