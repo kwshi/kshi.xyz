@@ -14,7 +14,7 @@
     "build:web": "svelte-kit build",
     "build:pcss": "postcss -o static/global.css src/assets/global.pcss",
     "build:resume": "ts-node ./pdf",
-    "build": "run-s build:pcss build:sync build:resume build:web",
+    "build": "run-s build:pcss build:gen build:resume build:web",
     "validate": "svelte-check"
   },
   "devDependencies": {
