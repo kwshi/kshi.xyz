@@ -5,19 +5,17 @@
   "repository": "https://github.com/kwshi/kshi.xyz",
   "type": "module",
   "scripts": {
-    "dev:sapper": "sapper dev --ext '.svelte .svx .html'",
+    "dev:web": "svelte-kit dev",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
     "dev:resume": "ts-node ./pdf --watch",
     "resume:browse": "ts-node ./pdf --watch --browser",
     "dev": "run-p dev:*",
-    "build:status": "git status",
-    "build:sapper": "sapper build --ext '.svx .svelte .html' --legacy",
-    "build:export": "sapper export --ext '.svx .svelte .html' --legacy",
+    "build:gen": "svelte-kit sync",
+    "build:web": "svelte-kit build",
     "build:pcss": "postcss -o static/global.css src/assets/global.pcss",
     "build:resume": "ts-node ./pdf",
-    "build": "run-s build:pcss build:resume build:export",
-    "start": "node __sapper__/build",
-    "validate": "svelte-check --ignore src/node_modules/@sapper"
+    "build": "run-s build:pcss build:sync build:resume build:web",
+    "validate": "svelte-check"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",
