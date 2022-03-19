@@ -7,7 +7,7 @@ import * as Toml from "@iarna/toml";
 import * as Winston from "winston";
 import postcss from "postcss";
 import unified from "unified";
-import yargs from "yargs/yargs";
+import yargs from "yargs";
 import watch from "node-watch";
 
 import remarkParse from "remark-parse";
