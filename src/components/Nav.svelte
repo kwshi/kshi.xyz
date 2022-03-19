@@ -1,15 +1,10 @@
 <script lang="ts">
   import Loading from "./Loading.svelte";
   import Hills from "./Hills.svelte";
-  import { onMount } from "svelte";
 
   export let segment: string | undefined;
 
   let scroll = 0;
-
-  let titleTop = 0;
-  let titleEl: HTMLElement | null = null;
-  onMount(() => (titleTop = titleEl!.offsetTop));
 </script>
 
 <svelte:window bind:scrollY={scroll} />
@@ -23,9 +18,9 @@
   <a
     href="/"
     title="Ha, get it?  It&rsquo;s funny because my last name is &ldquo;Shi&rdquo;."
-    style="transform: scale({Math.max(1, 3 - (scroll / titleTop) * 2)})"
-    bind:this={titleEl}>Kye's <em>Shi</em>nanigans</a
   >
+    Kye's <em>Shi</em>nanigans
+  </a>
   <ul>
     <li><a href="/about" class:now={segment === "about"}>about me</a></li>
     <li>
@@ -38,13 +33,13 @@
   </ul>
 </nav>
 
-<style lang="pcss">
+<style lang="postcss">
   nav {
-    @apply sticky -top-64 pt-64 
+    @apply sticky -top-64 pt-64
     text-warmgray-100
-    transition-colors 
+    transition-colors
     overflow-x-hidden
-    items-end 
+    items-end
     bg-fixed z-10;
 
     background-image: linear-gradient(
@@ -64,15 +59,14 @@
     & > .sun-wrapper {
       @apply absolute w-full h-full overflow-hidden;
       z-index: -10;
-      mix-blend-mode: color-dodge;
+      mix-blend-mode: overlay;
       clip-path: margin-box;
       clip: rect(auto, auto, auto, auto);
       & > .sun {
-        @apply w-24 h-24 absolute 
+        @apply w-24 h-24 absolute
           rounded-full right-1/3 top-40;
         background-color: #f34;
         position: fixed;
-        box-shadow: 0 0 32rem 8rem #932;
         z-index: -10;
       }
     }
@@ -87,14 +81,9 @@
     }
 
     & > a[href="/"] {
-      @apply font-bold 
-        text-lg
-      ml-16 
-      pt-2 
-        block 
-        relative 
-      origin-bottom-left;
+      @apply font-light text-4xl ml-16 pt-2;
       grid-area: title;
+      text-shadow: 0 0 0.25rem theme(colors.warmgray.900);
     }
 
     & > ul {
@@ -105,8 +94,8 @@
         @apply px-4 py-2 block transition-all relative;
 
         &::before {
-          @apply absolute inset-0 transition-opacity opacity-0 duration-300
-            bg-gradient-to-t from-orange-300;
+          @apply absolute inset-0 transition-opacity opacity-0 duration-300;
+          background-image: linear-gradient(to top, #f75, #0000);
           content: "";
           z-index: -1;
         }

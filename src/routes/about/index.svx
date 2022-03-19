@@ -17,9 +17,9 @@ Hi there! I'm Kye (he/him/his), and here are some fast facts about me:
 - I'm a {age}-year old Asian-American college student currently studying Math
   &amp; Computer Science at Harvey Mudd College.
 
-- Nerdy things I like: math, CS/programming, physics, engineering.
+- Nerdy stuff I like: math, CS/programming, physics, engineering.
 
-  Less nerdy things I like: drumming, [inquiry-based learning][ibl], puzzle
+  Less nerdy stuff I like: drumming, [inquiry-based learning][ibl], puzzle
   hunts, the Marvel Cinematic Universe, Minecraft, cooking, ballroom dancing,
   fountain pens, [Sophia Cheng][scheng].
 
@@ -51,7 +51,7 @@ say: I don't know, you tell me!_
 
 - Some of my favorite programming languages:
 
-  - OCaml
+  - OCaml and Haskell
   - Python (for fast coding settings, e.g. competitions)
   - Bash (I know, right?)
   - [TikZ][tikz-pikachu]
@@ -60,7 +60,6 @@ say: I don't know, you tell me!_
   (Languages I really want to learn, but haven't gotten around to:)
 
   - Rust
-  - Haskell
   - Clojure
   - Zig
   - Julia

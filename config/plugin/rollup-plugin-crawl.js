@@ -14,6 +14,7 @@ import * as ToVFile from "to-vfile";
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMath from "remark-math";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
+
 import remarkSmartypants from "@silvenon/remark-smartypants";
 
 import remarkExtractHeadings from "./remark-extract-headings.js";

@@ -62,7 +62,7 @@
   </g>
 </svg>
 
-<style>
+<style lang="postcss">
   svg {
     @apply absolute -bottom-0;
     z-index: -10;
