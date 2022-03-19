@@ -44,11 +44,11 @@
 
     background-image: linear-gradient(
       to bottom,
-      #478 0,
-      #6ab 6rem,
-      #9b9 12rem,
-      #ca8 16rem,
-      #e88 20rem
+      #378 0,
+      #59a 6rem,
+      #9a8 12rem,
+      #b97 16rem,
+      #d77 20rem
     );
 
     display: grid;

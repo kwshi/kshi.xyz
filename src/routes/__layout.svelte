@@ -10,7 +10,9 @@
   <slot />
 </main>
 
-<style>
+<style lang="postcss">
+  @import "../assets/global.pcss";
+
   main {
     @apply grid gap-x-8;
     grid-template-areas: "pad content toc" "pad footnote toc";

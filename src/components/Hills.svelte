@@ -18,9 +18,6 @@
     return `M ${x - w} -1 l ${w} ${h} l ${w} ${-h} Z`;
   };
 
-  const front = peaks(32, 256, 96);
-  const back = peaks(32, 128, 64);
-
   const pks = peaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
 
   const color = (t: number) =>
@@ -50,21 +47,14 @@
         fill={color(z)}
       />
     {/each}
-
-    <!--
-    {#each back as [x, y]}
-      <path fill="#875" d={path(x, Math.max(y + 16 - scroll / 2, 0))} />
-    {/each}
-    {#each front as [x, y]}
-      <path fill="#504832" d={path(x, Math.max(0, y + 8 - scroll / 4))} />
-    {/each}
-   -->
   </g>
 </svg>
 
-<style lang="postcss">
+<style>
   svg {
-    @apply absolute -bottom-0;
+    /* @apply absolute -bottom-0; */
+    position: absolute;
+    bottom: 0;
     z-index: -10;
   }
 </style>

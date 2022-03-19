@@ -1,7 +1,6 @@
 <script lang="ts">
   //import posts from './*/**/*.svx';
-  import type { Timeline } from "@@posts";
-  import posts from "@@posts";
+  import { default as posts, type Timeline } from "virtual:posts";
 
   const showDate = (s: string) => new Date(s).toLocaleDateString();
   const showPostDates = (t: Timeline | undefined) =>
@@ -31,8 +30,10 @@
   {/each}
 </article>
 
-<style>
+<style lang="postcss">
   article {
+    // weird
+
     display: grid;
     @apply gap-y-8 mt-8;
 

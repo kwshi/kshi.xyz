@@ -1,16 +1,12 @@
 // @ts-check
 import svPreprocess from "svelte-preprocess";
 import mdsvex from "./config/mdsvex.js";
-import adapter from "@sveltejs/adapter-auto";
+import adapter from "@sveltejs/adapter-netlify";
 
 import rollupCrawl from "./config/plugin/rollup-plugin-crawl.js";
 
 import * as Path from "path";
 import * as Url from "url";
-
-import pcssScss from "postcss-scss";
-import pcssNested from "postcss-nested";
-import tailwind from "tailwindcss";
 
 const dir = Path.dirname(Url.fileURLToPath(import.meta.url));
 
@@ -38,7 +34,7 @@ const config = {
       },
       plugins: [
         rollupCrawl({
-          alias: "@@posts",
+          alias: "virtual:posts",
           extensions: [".svx"],
         }),
       ],

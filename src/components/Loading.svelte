@@ -1,5 +1,6 @@
 <script>
   import { navigating } from "$app/stores";
+  import { onMount } from "svelte";
 
   const LOADING_ACCEL = 4e-6;
   const LOADING_TAU = 0.3e3;
@@ -8,6 +9,14 @@
   let pos = 0;
   let showLoad = false;
 
+  let mounted = false;
+  onMount(() => {
+    mounted = true;
+    return () => void (mounted = false);
+  });
+
+  $: active = $navigating !== null;
+
   const loadingStart = () => {
     const start = Date.now();
     showLoad = true;
@@ -15,7 +24,7 @@
     const frame = () => {
       const t = Date.now() - start;
 
-      if (!$navigating) {
+      if (!active) {
         loadingCleanup();
         return;
       }
@@ -52,7 +61,7 @@
     requestAnimationFrame(frame);
   };
 
-  $: if ($navigating) loadingStart();
+  $: if (mounted && active) loadingStart();
 </script>
 
 <div
@@ -61,7 +70,7 @@
   class:shown={showLoad}
 />
 
-<style lang="pcss">
+<style lang="postcss">
   .loading {
     @apply absolute left-0 top-0 bottom-0
         opacity-0
@@ -72,9 +81,8 @@
 
     z-index: -20;
 
-    background-image: linear-gradient(to right, #111, #333);
-    box-shadow: 1rem 0 1rem #333;
-    mix-blend-mode: color-dodge;
+    background-image: linear-gradient(to right, #0000, #f65a);
+    mix-blend-mode: overlay;
     will-change: opacity;
 
     &.shown {

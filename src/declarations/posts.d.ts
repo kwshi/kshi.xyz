@@ -1,4 +1,4 @@
-declare module "@@posts" {
+declare module "virtual:posts" {
   export interface Frontmatter {
     title: string;
     tags: string[];

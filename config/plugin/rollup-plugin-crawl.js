@@ -48,13 +48,13 @@ const crawl = async function* (path, prefix = []) {
  * }) => Promise<{ modified: Date; added: Date }>}
  */
 const getTimeline = async ({ repo, commit, path }) => {
-  for (let count = 2, i = 0, modified; ; count <<= 1) {
+  for (let count = 2, curr = path; ; count <<= 1) {
     const walker = repo.createRevWalk();
     walker.sorting(Git.Revwalk.SORT.TIME);
     walker.push(commit);
 
-    const walk = await walker.fileHistoryWalk(path, count);
-    for (; i < walk.length; ++i)
+    const walk = await walker.fileHistoryWalk(curr, count);
+    for (let i = 0, modified; i < walk.length; ++i)
       switch (walk[i].status) {
         case Git.Diff.DELTA.MODIFIED:
           modified = walk[i].commit.date();
@@ -62,7 +62,7 @@ const getTimeline = async ({ repo, commit, path }) => {
         case Git.Diff.DELTA.ADDED:
           return { modified, added: walk[i].commit.date() };
         case Git.Diff.DELTA.RENAMED:
-          path = walk[i].oldName;
+          curr = walk[i].oldName;
       }
   }
 };

@@ -1,5 +1,7 @@
-syntax: "postcss-scss"
+parser: "postcss-scss"
 plugins:
   autoprefixer: {}
   postcss-nested: {}
-  tailwindcss: {}
+  tailwindcss/nesting: {}
+  tailwindcss:
+    config: "./tailwind.config.cjs"

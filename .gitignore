@@ -12,3 +12,4 @@ static/cv.pdf
 !/src/node_modules
 
 .svelte-kit
+build
