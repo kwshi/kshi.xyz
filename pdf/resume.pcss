@@ -27,7 +27,7 @@ header {
 
   h1 {
     @apply m-0 pt-2 -ml-2 font-normal
-    tracking-normal 
+    tracking-normal
     relative
     text-teal-500;
     font-family: "Julius Sans One";
@@ -38,7 +38,7 @@ header {
   }
 
   .contact {
-    @apply list-none 
+    @apply list-none
     leading-none
     grid gap-x-4 gap-y-1
     grid-rows-2 auto-cols-fr grid-flow-col
@@ -111,6 +111,7 @@ header {
 
 code {
   @apply bg-warmgray-100 rounded-sm;
+  font-family: 'Inconsolata';
   padding: 0.125rem 0.25rem;
   font-size: 0.9375em;
 }
@@ -119,7 +120,7 @@ h1:not(header h1) {
   @apply mb-0 mt-0
   font-medium
   text-xl
-  lowercase 
+  lowercase
   tracking-widest
   text-amber-700;
 
@@ -176,14 +177,14 @@ h4:not(header h4) {
   }
 
   time {
-    @apply text-gray-600 text-sm float-right font-normal lowercase 
+    @apply text-gray-600 text-sm float-right font-normal lowercase
     flex-grow flex flex-row items-baseline;
 
     font-family: "Alegreya Sans SC";
 
     &::before {
-      @apply block 
-      flex-grow 
+      @apply block
+      flex-grow
       border-0 border-b border-dotted border-warmgray-200
       ml-2 mr-2;
       content: "";

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   //import posts from './*/**/*.svx';
   import type { Timeline } from "@@posts";
   import posts from "@@posts";

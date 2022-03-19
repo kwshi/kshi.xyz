@@ -1,1 +1,1 @@
-pluginSearchDirs = ["."]
+plugins = ['prettier-plugin-jsdoc', 'prettier-plugin-svelte']

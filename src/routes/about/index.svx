@@ -1,28 +1,30 @@
-<script>
 
-import {age} from '@/lib/age';
 
+<script lang='ts'>
+// vi: ft=markdown
+import {age} from '$lib/age';
 </script>
 
 <svelte:head>
+
 <title>About Me | Kye's Shinanigans</title>
 </svelte:head>
 
 # Fast facts
 
-Hi there!  I'm Kye (he/him/his), and here are some fast facts about me:
+Hi there! I'm Kye (he/him/his), and here are some fast facts about me:
 
 - I'm a {age}-year old Asian-American college student currently studying Math
   &amp; Computer Science at Harvey Mudd College.
 
-- Nerdy things I like: math, CS/programming, physics, engineering.  
+- Nerdy things I like: math, CS/programming, physics, engineering.
 
   Less nerdy things I like: drumming, [inquiry-based learning][ibl], puzzle
   hunts, the Marvel Cinematic Universe, Minecraft, cooking, ballroom dancing,
   fountain pens, [Sophia Cheng][scheng].
 
 - Bands I'm currently excited about: [Lydian Collective][lc], Panic! At the
-  Disco, Fall Out Boy.  
+  Disco, Fall Out Boy.
 
   Other music I really like: the _How To Train Your Dragon_ soundtracks, the
   _Halo_ soundtracks, the _Last of Us_ theme.
@@ -42,12 +44,13 @@ Hi there!  I'm Kye (he/him/his), and here are some fast facts about me:
 
 I was born in California, moved to Singapore when I was two, stayed there for
 five years, then moved to Shanghai in the second grade, stayed there for seven
-years, then came back to California for high school and college.  _That is to
+years, then came back to California for high school and college. _That is to
 say: I don't know, you tell me!_
 
 # Software I enjoy
 
 - Some of my favorite programming languages:
+
   - OCaml
   - Python (for fast coding settings, e.g. competitions)
   - Bash (I know, right?)
@@ -55,6 +58,7 @@ say: I don't know, you tell me!_
   - Elm
 
   (Languages I really want to learn, but haven't gotten around to:)
+
   - Rust
   - Haskell
   - Clojure
@@ -65,7 +69,7 @@ say: I don't know, you tell me!_
 [tikz-pikachu]: https://github.com/kwshi/pikachu-tikz
 
 - My preferred text editor: currently Neovim, but I'd like to get back into the
-  Emacs groove some day soon.  (_Maybe_ I'll explore VSCode some day, but on
+  Emacs groove some day soon. (_Maybe_ I'll explore VSCode some day, but on
   principle I'm reluctant to jump on the corporate-sponsored-open-source
   bandwagon just yet.)
 

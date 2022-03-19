@@ -1,12 +1,16 @@
 {
-  "extends": "@tsconfig/svelte/tsconfig.json",
+  "extends": "./.svelte-kit/tsconfig.json",
   "compilerOptions": {
     "lib": ["DOM", "ES2017", "WebWorker"],
+    "checkJs": true,
     "strict": true,
     "sourceMap": true,
     "typeRoots": ["./node_modules/@types", "./src/declarations"],
-    "types": ["node"]
-  },
-  "include": ["src/**/*", "src/node_modules/**/*"],
-  "exclude": ["node_modules/*", "__sapper__/*", "static/*"]
+    "types": ["node"],
+    "paths": {
+      "$lib": ["src/lib"],
+      "$lib/*": ["src/lib/*"],
+      "$components/*": ["src/components/*"]
+    }
+  }
 }

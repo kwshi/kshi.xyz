@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Loading from "./Loading.svelte";
   import Hills from "./Hills.svelte";
   import { onMount } from "svelte";
@@ -38,7 +38,7 @@
   </ul>
 </nav>
 
-<style>
+<style lang="pcss">
   nav {
     @apply sticky -top-64 pt-64 
     text-warmgray-100

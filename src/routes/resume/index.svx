@@ -82,11 +82,9 @@ url = "https://gitlab.com/kwshi"
 [^ex]: qualified for exemption
 [^ip]: in progress
 
-# Achievements
+# Academic achievements
 
 - *Courtney S. Coleman Prize in Mathematics*, Harvey Mudd College (2019)
-
-- *Advent of Code* 31st place (2019), 53rd place (2020)
 
 - *ACM ICPC* North American Championships qualifier, 49th place nationwide
   (2020)
@@ -100,16 +98,15 @@ url = "https://gitlab.com/kwshi"
 
 
 
+
 # Research
 
 ## Publications
 
-- S. R. Garcia, **K. Shi**, G. Udell.  
-
-  [*Primitive root bias for twin primes II: Schinzel-type theorems for totient
-  quotients and the sum-of-divisors function*.][prbtp2]
-
-  Journal of Number Theory 208: 400--417 (2020).
+- Stephan R. Garcia, **Kye Shi**, Gabe Udell.  [*Primitive root bias for twin
+  primes II: Schinzel-type theorems for totient quotients and the
+  sum-of-divisors function*][prbtp2].  Journal of Number Theory 208: 400--417
+  (2020).
 
 [prbtp2]: https://arxiv.org/abs/1906.05927
 
@@ -117,9 +114,9 @@ url = "https://gitlab.com/kwshi"
 
 ### [**MathILy**][mathily] <small>Assistant Instructor</small> <time>July 2020, 2021</time>
 
-- Five-week, intensive [inquiry-based][ibl] summer math program for high school
-  students.  Co-taught two-week Root curriculum in linear algebra &amp;
-  discrete math, and two-week Branch curricula in [origami][origami-wiki]
+- 5-week, intensive [inquiry-based][ibl] summer math program for high school
+  students.  Co-taught 2-week Root curriculum in linear algebra &amp;
+  discrete math, and 2-week Branch curricula in [origami][origami-wiki]
   [mathematics][origametry] and in persistent homology
 
 - Led hour-long exploration on reductions between Sudoku, Exact Cover, and
@@ -140,11 +137,16 @@ url = "https://gitlab.com/kwshi"
 
 ### [**U.S. Physics Team**][usphysics] <small>Junior Coach</small> <time>Summer 2019--now</time>
 
-- Contributed problems &amp; diagram illustrations to, and helped proofread,
+- Contribute problems &amp; diagram illustrations to, and help proofread,
   the annual $F=ma$ &amp; USAPhO physics competitions for high school students
 
-- Taught week-long mini-courses at summer training camp in olympiad-level
-  electromagnetics, lab techniques, mechanics
+- Teach week-long mini-courses at summer training camp in olympiad-level topics,
+  e.g.:
+
+  - Classical electromagnetism
+  - Experimental techniques &amp; error propagation
+  - Classical mechanics
+  - Special relativity
 
 ### Harvey Mudd College <small>Student Grutor</small> <time>2018--2019</time>
 
@@ -190,40 +192,55 @@ url = "https://gitlab.com/kwshi"
 - Developed various
 -->
 
+### OctoML <small>Part-time Intern</small> <time>April--May 2021</time>
+
+- Designed and implemented additional features for `tentactl`, a Rust-based
+  command-line tool for interacting with the [OctoML][octoml] platform API
+  (*&agrave; la* GitHub's [`gh`][gh] tool)
+
 [lsp]: https://microsoft.github.io/language-server-protocol/
 [prettier]: https://prettier.io/
+[octoml]: https://octoml.ai/
+[gh]: https://cli.github.com/
 
-# Software Projects
+# Personal software projects
 
 ### [Hyperschedule][hyperschedule] <small>maintainer</small> <time>2019--now</time>
 
-  - Tool for browsing courses & planning schedules for students at the
-    [Claremont Colleges][5cs]
+- Tool for browsing courses & planning schedules for students at the [Claremont
+  Colleges][5cs]
 
-  - Used ubiquitously by 5C students (1,000+ students according to analytics
-    data)
+- Used ubiquitously by 5C students (1,000+ students according to analytics data)
 
 ### [Slick][slick] <small>co-creator</small> <time>September 2020</time>
 
-  - Designed &amp; implemented a statically-typed,
-    [_row-polymorphic_][row-polymorphism], functional programming language
-    created for the [2020 Repl.it Programming Language
-    Competition][replit-jam], combining ML/Haskell-style type-safety with
-    Python-style versatility/accessibility
+- Designed &amp; implemented a statically-typed, [_row-polymorphic_][row-polymorphism], 
+  functional programming language created for the [2020 Repl.it Programming
+  Language Competition][replit-jam], combining ML/Haskell-style type-safety
+  with Python-style versatility/accessibility
+
+### [Knot visualizer][knot] <small>co-creator</small> <time>January 2021</time>
+
+- Interactive educational tool for producing diagram visualizations of
+  mathematical [knots][knot-wiki] based on their ["Gauss code"][gauss-code]
+
 
 [hyperschedule]: https://github.com/MuddCreates/hyperschedule
 [slick]: https://github.com/kwshi/slick
 [5cs]: https://www.claremont.edu/
 [row-polymorphism]: https://en.wikipedia.org/wiki/Row_polymorphism
 [replit-jam]: https://repl.it/site/jam
+[knot-wiki]: https://en.wikipedia.org/wiki/Knot_(mathematics)
+[knot]: https://knot.kshi.xyz
+[gauss-code]: https://www.math.toronto.edu/drorbn/Students/GreenJ/gausscode.html
 
 # Software Skills
 
 ## Programming languages
 
-- **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm
+- **Proficient:** OCaml/ReasonML, Python, TypeScript/JavaScript, Bash/sh, Elm, Go
 
-- **Competent:** Rust, Mathematica, Go, C/C++, Java, SQL, Haskell
+- **Competent:** Rust, Mathematica, C/C++, Java, SQL, Haskell
 
 - **Basic:** Swift, Factor, Elvish
 
@@ -244,3 +261,11 @@ url = "https://gitlab.com/kwshi"
 - Wheelthrowing
 - Drawing
 -->
+
+# Random fun accomplishments
+
+- *Advent of Code* 31st place (2019), 53rd place (2020)
+
+- *Bloomberg Summer Intern Puzzle Hunt* 1st place (2019, 2020)
+
+- *Google Tech Challenge* 2nd place (2019)

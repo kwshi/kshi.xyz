@@ -1,26 +1,27 @@
-const { mdsvex } = require("mdsvex");
+import { mdsvex } from "mdsvex";
 
-const Path = require("path");
+import * as Path from "path";
+import * as Url from "url";
 
-const remarkMath = require("remark-math-old");
-const remarkGithub = require("remark-github");
-const remarkFootnotes = require("remark-footnotes");
-const remarkToc = require("remark-toc");
-const remarkSlug = require("remark-slug");
-const remarkEmoji = require("remark-emoji");
+import remarkMath from "remark-math-old";
+import remarkGithub from "remark-github";
+import remarkFootnotes from "remark-footnotes";
+import remarkToc from "remark-toc";
+import remarkSlug from "remark-slug";
+import remarkEmoji from "remark-emoji";
 //import rehypeKatex from "rehype-katex";
-const rehypeKatexSvelte = require("rehype-katex-svelte");
+import rehypeKatexSvelte from "rehype-katex-svelte";
 
-const rehypeAutolinkHeadings = require("rehype-autolink-headings");
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
-const remarkInjectToc = require("./plugin/remark-inject-toc");
-const rehypeBaseWorkaround = require("./plugin/rehype-base-workaround");
-const remarkGlobalToc = require("./plugin/remark-global-toc");
+import remarkInjectToc from "./plugin/remark-inject-toc.js";
+import rehypeBaseWorkaround from "./plugin/rehype-base-workaround.js";
+import remarkGlobalToc from "./plugin/remark-global-toc.js";
 
-const VMessage = require("vfile-message");
+import VMessage from "vfile-message";
 
-const Toml = require("@iarna/toml");
-const Chalk = require("chalk");
+import * as Toml from "@iarna/toml";
+import Chalk from "chalk";
 
 // - plugin to generate TOC as sidebar
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -33,8 +34,8 @@ const katexMacros = {
   "\\pdif": "\\operatorname \\partial\\!",
 };
 
-module.exports = mdsvex({
-  extensions: [".svx", ".md"],
+export default mdsvex({
+  extensions: [".svx"],
   smartypants: {
     dashes: "oldschool",
     backticks: true,
@@ -56,7 +57,10 @@ module.exports = mdsvex({
         console.error(Chalk.stderr.redBright(msg.toString()));
     },
   ],
-  layout: Path.join(__dirname, "../src/components/Mdsvex.svelte"),
+  //layout: Path.join(
+  //  Path.dirname(Url.fileURLToPath(import.meta.url)),
+  //  "../src/components/Mdsvex.svelte"
+  //),
   frontmatter: {
     marker: "+",
     type: "toml",

@@ -10,3 +10,5 @@ static/global.css
 static/cv.pdf
 
 !/src/node_modules
+
+.svelte-kit

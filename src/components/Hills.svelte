@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   const SLOPE = 3;
 
   const rand3 = () => (Math.random() + Math.random() + Math.random()) / 3;

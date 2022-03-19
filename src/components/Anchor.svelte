@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { scrollto, setGlobalOptions } from "svelte-scrollto";
 
   export let rel: string | undefined = undefined;

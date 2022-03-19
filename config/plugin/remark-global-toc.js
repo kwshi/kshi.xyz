@@ -1,7 +1,7 @@
-const mdastToc = require("mdast-util-toc");
-const Md = require("mdast-builder");
+import mdastToc from "mdast-util-toc";
+import * as Md from "mdast-builder";
 
-module.exports = () => (tree) => {
+export default () => (tree) => {
   const toc = mdastToc(tree, {
     tight: true,
   });

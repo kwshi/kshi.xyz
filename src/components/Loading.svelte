@@ -1,5 +1,5 @@
 <script>
-  import { stores } from "@sapper/app";
+  import { navigating } from "$app/stores";
 
   const LOADING_ACCEL = 4e-6;
   const LOADING_TAU = 0.3e3;
@@ -8,8 +8,6 @@
   let pos = 0;
   let showLoad = false;
 
-  const { preloading } = stores();
-
   const loadingStart = () => {
     const start = Date.now();
     showLoad = true;
@@ -17,7 +15,7 @@
     const frame = () => {
       const t = Date.now() - start;
 
-      if (!$preloading) {
+      if (!$navigating) {
         loadingCleanup();
         return;
       }
@@ -54,7 +52,7 @@
     requestAnimationFrame(frame);
   };
 
-  $: if ($preloading) loadingStart();
+  $: if ($navigating) loadingStart();
 </script>
 
 <div
@@ -63,7 +61,7 @@
   class:shown={showLoad}
 />
 
-<style>
+<style lang="pcss">
   .loading {
     @apply absolute left-0 top-0 bottom-0
         opacity-0

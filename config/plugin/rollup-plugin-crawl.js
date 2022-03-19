@@ -1,3 +1,5 @@
+// @ts-check
+
 import * as Path from "path";
 import { promises as Fs } from "fs";
 
@@ -7,17 +9,23 @@ import Toml from "@iarna/toml";
 import Chalk from "chalk";
 
 import remark from "remark";
-import ToVFile from "to-vfile";
+import * as ToVFile from "to-vfile";
 
 import remarkFrontmatter from "remark-frontmatter";
 import remarkMath from "remark-math";
 import remarkExtractFrontmatter from "remark-extract-frontmatter";
 import remarkSmartypants from "@silvenon/remark-smartypants";
 
-import remarkExtractHeadings from "./remark-extract-headings";
-import remarkExtractIntro from "./remark-extract-intro";
-import remarkValidateFrontmatter from "./remark-validate-frontmatter";
+import remarkExtractHeadings from "./remark-extract-headings.js";
+import remarkExtractIntro from "./remark-extract-intro.js";
+import remarkValidateFrontmatter from "./remark-validate-frontmatter.js";
 
+/**
+ * @type {(
+ *   path: string,
+ *   prefix?: string[]
+ * ) => AsyncGenerator<{ path: string; prefix: string[] }, void, void>}
+ */
 const crawl = async function* (path, prefix = []) {
   if ((await Fs.lstat(path)).isDirectory())
     for (const name of await Fs.readdir(path))
@@ -31,6 +39,13 @@ const crawl = async function* (path, prefix = []) {
   }
 };
 
+/**
+ * @type {(args: {
+ *   repo: Git.Repository;
+ *   commit: Git.Oid;
+ *   path: string;
+ * }) => Promise<{ modified: Date; added: Date }>}
+ */
 const getTimeline = async ({ repo, commit, path }) => {
   for (let count = 2, i = 0, modified; ; count <<= 1) {
     const walker = repo.createRevWalk();
@@ -42,16 +57,23 @@ const getTimeline = async ({ repo, commit, path }) => {
       switch (walk[i].status) {
         case Git.Diff.DELTA.MODIFIED:
           modified = walk[i].commit.date();
-          break;
+          continue;
         case Git.Diff.DELTA.ADDED:
           return { modified, added: walk[i].commit.date() };
         case Git.Diff.DELTA.RENAMED:
           path = walk[i].oldName;
       }
-    if (walk.reachedEndOfHistory) return;
   }
 };
 
+/**
+ * @type {(args: {
+ *   repo: Git.Repository;
+ *   commit: Git.Oid;
+ *   path: string;
+ *   prefix: string[];
+ * }) => Promise<{}>}
+ */
 const read = async ({ repo, commit, path, prefix }) => {
   const file = await remark()
     .use(remarkFrontmatter, ["toml"])
@@ -73,17 +95,25 @@ const read = async ({ repo, commit, path, prefix }) => {
   return { data: file.data, prefix, timeline };
 };
 
-export default ({ alias, extensions }) => ({
+/**
+ * @type {(opts: {
+ *   alias: string;
+ *   extensions: string[];
+ * }) => import("rollup").Plugin}
+ */
+const plugin = ({ alias, extensions }) => ({
+  name: "crawl",
   resolveId: (src, importer) =>
-    src === alias ? Path.join(Path.dirname(importer), alias) : null,
+    src === alias ? `\0posts:${Path.dirname(importer)}` : null,
   async load(src) {
-    if (Path.basename(src) !== alias) return null;
+    if (!src.startsWith("\0posts:")) return null;
+    const path = src.slice("\0posts:".length);
 
     const repo = await Git.Repository.open(".");
     const commit = (await repo.getHeadCommit()).id();
 
     const contents = [];
-    for await (const post of crawl(Path.dirname(src)))
+    for await (const post of crawl(path))
       if (extensions.includes(Path.extname(post.path)))
         contents.push(
           await read({
@@ -96,3 +126,5 @@ export default ({ alias, extensions }) => ({
     return `export default ${JSON.stringify(contents)}`;
   },
 });
+
+export default plugin;
