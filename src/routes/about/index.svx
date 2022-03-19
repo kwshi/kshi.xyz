@@ -1,7 +1,5 @@
-
-
 <script lang='ts'>
-// vi: ft=markdown
+// vi: ft=svelte
 import {age} from '$lib/age';
 </script>
 
@@ -14,7 +12,7 @@ import {age} from '$lib/age';
 
 Hi there! I'm Kye (he/him/his), and here are some fast facts about me:
 
-- I'm a {age}-year old Asian-American college student currently studying Math
+- I'm a {$age}-year old Asian-American college student currently studying Math
   &amp; Computer Science at Harvey Mudd College.
 
 - Nerdy stuff I like: math, CS/programming, physics, engineering.
