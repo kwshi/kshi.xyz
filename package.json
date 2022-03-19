@@ -19,11 +19,6 @@
     "start": "node __sapper__/build",
     "validate": "svelte-check --ignore src/node_modules/@sapper"
   },
-  "dependencies": {
-    "compression": "^1.7.4",
-    "polka": "next",
-    "sirv": "^1.0.19"
-  },
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
