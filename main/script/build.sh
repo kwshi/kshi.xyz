@@ -4,7 +4,7 @@ set -eu
 echo "compiling build plugins"
 for plugin in '../plugin'/*; do
   echo "plugin $plugin"
-  ( cd "$plugin"; pnpx tsc -b )
+  ( cd "$plugin"; tsc -b )
 done
 
-pnpx svelte-kit build
+svelte-kit build
