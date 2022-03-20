@@ -90,7 +90,7 @@
     "remark-math": "^4.0.0",
     "remark-math-old": "npm:remark-math@^3.0.1",
     "remark-parse": "^9.0.0",
-    "remark-posts-frontmatter": "file:../plugin/remark-posts-frontmatter",
+    "remark-posts-frontmatter": "workspace:*",
     "remark-rehype": "^8.1.0",
     "remark-slug": "^6.1.0",
     "remark-toc": "^7.2.0",
@@ -117,9 +117,13 @@
     "vfile": "^4.2.1",
     "vfile-message": "^2.0.4",
     "vite": "^2.8.6",
-    "vite-plugin-posts": "file:../plugin/vite-plugin-posts",
+    "vite-plugin-posts": "workspace:*",
     "watch": "^1.0.2",
     "winston": "^3.6.0",
     "yargs": "^16.2.0"
-  }
+  },
+  "workspaces": [
+    "../plugin/remark-posts-frontmatter",
+    "../plugin/vite-plugin-posts"
+  ]
 }
