@@ -1,0 +1,2 @@
+dev:
+  ./script/dev.bash

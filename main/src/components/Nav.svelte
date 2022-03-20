@@ -2,7 +2,7 @@
   import Loading from "./Loading.svelte";
   import Hills from "./Hills.svelte";
 
-  export let segment: string | undefined;
+  export let segment: string | null;
 
   let scroll = 0;
 </script>
@@ -98,6 +98,10 @@
           background-image: linear-gradient(to top, #f75, #0000);
           content: "";
           z-index: -1;
+        }
+
+        &.now::before {
+          @apply opacity-50;
         }
 
         &:hover::before {

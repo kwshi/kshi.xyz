@@ -1,0 +1,22 @@
+{
+  "name": "remark-posts-frontmatter",
+  "version": "1.0.0",
+  "description": "remark plugin to validate blog post frontmatter",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "remark-extract-frontmatter": "^3.2.0",
+    "remark-frontmatter": "^4.0.1",
+    "zod": "^3.14.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "remark": "^14.0.2",
+    "unified": "^10.1.2"
+  }
+}

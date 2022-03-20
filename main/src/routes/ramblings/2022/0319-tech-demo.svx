@@ -1,0 +1,11 @@
++++
+# vi: ft=markdown
+title = 'Hello world!'
+short = '…and a tech demo for my blog'
+
+tags = ['meta', 'programming', 'svelte', 'katex']
++++
+
+bonanza
+
+$katex$

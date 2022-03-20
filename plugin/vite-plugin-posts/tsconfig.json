@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "composite": true,
+    "rootDir": "src",
+    "types": ["node"],
+    "sourceMap": true,
+    "declarationMap": true,
+    "outDir": "dist"
+  }
+}

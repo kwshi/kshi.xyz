@@ -1,0 +1,30 @@
+{
+  "name": "vite-plugin-posts",
+  "version": "1.0.0",
+  "description": "filesystem-based blog post metadata crawler (git & remark-aware)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {},
+  "author": "Kye Shi <shi.kye@gmail.com>",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "git": "^0.1.5",
+    "nodegit": "^0.27.0",
+    "remark": "^14.0.2",
+    "remark-extract-frontmatter": "^3.2.0",
+    "remark-frontmatter": "^4.0.1",
+    "remark-math": "^5.1.1",
+    "remark-smartypants": "github:silvenon/remark-smartypants",
+    "to-vfile": "^7.2.3",
+    "toml": "^3.0.0",
+    "unified": "^10.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.21",
+    "@types/nodegit": "^0.27.10",
+    "rollup": "^2.70.1",
+    "vite": "^2.8.6"
+  }
+}

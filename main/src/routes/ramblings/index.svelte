@@ -1,30 +1,29 @@
 <script lang="ts">
-  //import posts from './*/**/*.svx';
-  import { default as posts, type Timeline } from "virtual:posts";
+  import { default as posts, type Timestamp } from "virtual:posts";
 
-  const showDate = (s: string) => new Date(s).toLocaleDateString();
-  const showPostDates = (t: Timeline | undefined) =>
-    t
-      ? `posted ${showDate(t.added)}` +
-        (t.modified ? `, updated ${showDate(t.modified)}` : "")
-      : "not yet posted";
+  const showDate = (t: number) => new Date(t).toLocaleDateString();
+  const showPostDates = (t: Timestamp | undefined) =>
+    typeof t === "undefined"
+      ? "not yet posted"
+      : `posted ${showDate(t.added)}` +
+        (t.modified ? `, updated ${showDate(t.modified)}` : "");
 </script>
 
 <article>
   {#each posts as post}
     <section>
       <header>
-        <a href="/ramblings/{post.prefix.join('/')}">
+        <a href="/ramblings/{post.segments.join('/')}">
           <h2>{post.data.frontmatter.title}</h2>
         </a>
         <em class="short">{post.data.frontmatter.short}</em>
-        <span class="date">[{showPostDates(post.timeline)}]</span>
+        <span class="date">[{showPostDates(post.timestamp)}]</span>
       </header>
       <div class="preview">
         {@html post.data.intro}
       </div>
       <div class="overlay">
-        <a href="/ramblings/{post.prefix.join('/')}">Read more...</a>
+        <a href="/ramblings/{post.segments.join('/')}">Read more...</a>
       </div>
     </section>
   {/each}

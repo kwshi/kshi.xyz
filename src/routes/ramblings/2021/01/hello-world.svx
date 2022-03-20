@@ -1,7 +1,0 @@
-+++
-title = "Hello world!"
-tags = ["meta"]
-short = "Welcome to my new website!"
-+++
-
-hi there

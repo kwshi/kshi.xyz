@@ -13,3 +13,6 @@ static/cv.pdf
 
 .svelte-kit
 build
+
+dist
+.pnpm-debug.log

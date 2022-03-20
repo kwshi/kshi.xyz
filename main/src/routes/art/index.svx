@@ -1,0 +1,5 @@
+<script lang='ts'>
+import posts from 'virtual:posts'
+</script>
+
+{JSON.stringify(posts)}

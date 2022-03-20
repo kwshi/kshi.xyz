@@ -1,10 +1,9 @@
 <script lang="ts">
   import Nav from "$components/Nav.svelte";
-
-  export let segment: string | undefined;
+  import { page } from "$app/stores";
 </script>
 
-<Nav {segment} />
+<Nav segment={$page.routeId} />
 
 <main>
   <slot />

@@ -1,4 +1,8 @@
 <script lang="ts">
+  import { onMount } from "svelte";
+
+  type Peak = [number, number, number];
+
   const SLOPE = 3;
 
   const rand3 = () => (Math.random() + Math.random() + Math.random()) / 3;
@@ -10,7 +14,7 @@
     return ts;
   };
 
-  const peaks = (count: number, spacing: number, height: number) =>
+  const randPeaks = (count: number, spacing: number, height: number): Peak[] =>
     randTicks(count, spacing).map((x) => [x, rand3() * height, Math.random()]);
 
   const path = (x: number, h: number) => {
@@ -18,7 +22,11 @@
     return `M ${x - w} -1 l ${w} ${h} l ${w} ${-h} Z`;
   };
 
-  const pks = peaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
+  const peaks = randPeaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
+
+  onMount(() => {
+    console.log("mount");
+  });
 
   const color = (t: number) =>
     `rgb(${224 - 192 * t}, ${128 - 108 * t}, ${96 - 50 * t})`;
@@ -38,7 +46,7 @@
 
 <svg width="100%" height="192" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1, 0, 0, -1, 0, 192)">
-    {#each pks as [x, y, z]}
+    {#each peaks as [x, y, z]}
       <path
         d={path(
           x * 128 + z * 64 + (mouseX / screenWidth) * 64 * z,

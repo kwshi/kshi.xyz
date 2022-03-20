@@ -11,4 +11,5 @@
 Hi there---welcome to my website!  I'm Kye, a {$age}-year old Asian-American
 college student who loves math, programming, teaching, drumming, and eating.
 
+
 ## [Recent ramblings](/ramblings)

@@ -3,10 +3,16 @@ import svPreprocess from "svelte-preprocess";
 import mdsvex from "./config/mdsvex.js";
 import adapter from "@sveltejs/adapter-netlify";
 
-import rollupCrawl from "./config/plugin/rollup-plugin-crawl.js";
-
 import * as Path from "path";
 import * as Url from "url";
+
+import * as Remark from "remark";
+import remarkFrontmatter from "remark-frontmatter";
+import remarkExtractFrontmatter from "remark-extract-frontmatter";
+import remarkPostsFrontmatter from "remark-posts-frontmatter";
+import vitePosts from "vite-plugin-posts";
+
+import * as Toml from '@iarna/toml'
 
 const dir = Path.dirname(Url.fileURLToPath(import.meta.url));
 
@@ -33,11 +39,18 @@ const config = {
         },
       },
       plugins: [
-        rollupCrawl({
+        vitePosts({
+          root: "src/routes/ramblings",
           alias: "virtual:posts",
           extensions: [".svx"],
+          processor: Remark.remark()
+            .use(remarkFrontmatter, ["toml"])
+            .use(remarkExtractFrontmatter, {toml: Toml.parse, name: 'frontmatter'})
+            .use(remarkPostsFrontmatter),
         }),
       ],
+      // avoid clearing screen when logging, to keep warning/errors visible
+      clearScreen: false,
     },
   },
 };
