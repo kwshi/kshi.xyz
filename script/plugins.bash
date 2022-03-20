@@ -13,5 +13,4 @@ for p in plugin/*; do
   popd > '/dev/null'
 done
 
-cd 'main'
-pnpx svelte-kit dev
+

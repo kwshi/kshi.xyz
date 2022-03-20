@@ -14,7 +14,7 @@
     "build:web": "svelte-kit build",
     "build:pcss": "postcss -o static/global.css src/assets/global.pcss",
     "build:resume": "node --experimental-specifier-resolution=node --loader=ts-node/esm ./pdf",
-    "build": "run-s build:pcss build:gen build:resume build:web",
+    "build": "./script/build.sh",
     "validate": "svelte-check"
   },
   "devDependencies": {
