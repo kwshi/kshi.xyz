@@ -64,7 +64,7 @@ const getTimestamp = async (
 
     const walk = await walker.fileHistoryWalk(curr, count);
 
-    if (walk.length === 0) return;
+    if (<boolean>(<any>walk).reachedEndOfHistory && walk.length === 0) return;
 
     for (let i = 0, modified: Date | null = null; i < walk.length; ++i)
       switch (walk[i].status) {
@@ -105,7 +105,7 @@ const searchPosts = async (
 
     const [data, timestamp] = await Promise.all([
       getData(options.processor, Path.relative(".", post.path)),
-      getTimestamp(repo, commit, post.path),
+      getTimestamp(repo, commit, Path.relative(repo.workdir(), post.path)),
     ]);
     entries.push({ data, timestamp, segments: post.prefix });
   }
