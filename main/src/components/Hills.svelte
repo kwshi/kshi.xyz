@@ -22,20 +22,26 @@
     return `M ${x - w} -1 l ${w} ${h} l ${w} ${-h} Z`;
   };
 
-  const peaks = randPeaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
+  let peaks: Peak[] = [];
+  let mounted = false;
 
   onMount(() => {
+    peaks = randPeaks(64, 1, 1).sort(([, , z1], [, , z2]) => z1 - z2);
     console.log("mount");
+    setTimeout(() => void (mounted = true), 0);
   });
+
+  // rgb(32,20,46)
+  // rgb(192,108,50)
 
   const color = (t: number) =>
     `rgb(${224 - 192 * t}, ${128 - 108 * t}, ${96 - 50 * t})`;
 
   let scroll = 0;
-  let mouseX = 0;
   let screenWidth = 1;
+  let position: number = 1 / 2;
 
-  const mouseMove = (e: MouseEvent) => (mouseX = e.clientX);
+  const mouseMove = (e: MouseEvent) => (position = e.clientX / screenWidth);
 </script>
 
 <svelte:window
@@ -47,22 +53,38 @@
 <svg width="100%" height="192" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1, 0, 0, -1, 0, 192)">
     {#each peaks as [x, y, z]}
-      <path
-        d={path(
-          x * 128 + z * 64 + (mouseX / screenWidth) * 64 * z,
-          y * 64 + z * 64 - scroll * (z / 2 + 1 / 4) + 32
-        )}
-        fill={color(z)}
-      />
+      <g style={`transform: translate(0, ${-scroll * (z / 2 + 1 / 4)}px)`}>
+        <g
+          class="cool"
+          style={`transform: translate(${position * z * (100 / 4)}%`}
+        >
+          <path
+            class="hill"
+            style={`transform: translate(0, -${
+              +!mounted * (1 / 2 + z) * 100
+            }%)`}
+            d={path(x * 128, y * 64 + z * 64 + 32)}
+            fill={color(z)}
+          />
+        </g>
+      </g>
     {/each}
   </g>
 </svg>
 
-<style>
+<style lang="postcss">
   svg {
-    /* @apply absolute -bottom-0; */
     position: absolute;
     bottom: 0;
     z-index: -10;
+
+    .cool {
+      transition: linear transform 50ms;
+    }
+
+    .hill {
+      transition: transform 0.5s;
+      transform: translate(0, 0);
+    }
   }
 </style>
