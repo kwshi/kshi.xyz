@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "repository": "https://github.com/kwshi/kshi.xyz",
   "type": "module",
+  "private": true,
   "scripts": {
     "dev:web": "svelte-kit dev",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
