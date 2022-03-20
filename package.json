@@ -1,6 +1,7 @@
 {
   "private": true,
   "workspaces": [
+    "main",
     "plugin/remark-posts-frontmatter",
     "plugin/vite-plugin-posts"
   ]
