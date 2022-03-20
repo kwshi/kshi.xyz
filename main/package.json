@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "repository": "https://github.com/kwshi/kshi.xyz",
   "type": "module",
-  "private": true,
   "scripts": {
     "dev:web": "svelte-kit dev",
     "dev:pcss": "postcss -w -o static/global.css src/assets/global.pcss",
@@ -122,9 +121,5 @@
     "watch": "^1.0.2",
     "winston": "^3.6.0",
     "yargs": "^16.2.0"
-  },
-  "workspaces": [
-    "../plugin/remark-posts-frontmatter",
-    "../plugin/vite-plugin-posts"
-  ]
+  }
 }
