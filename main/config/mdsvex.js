@@ -1,3 +1,4 @@
+// @ts-check
 import { mdsvex } from "mdsvex";
 
 import * as Path from "path";
@@ -30,8 +31,9 @@ const katexMacros = {
   ...Object.fromEntries(
     Array.from(letters).map((c) => [`\\${c}${c}`, `\\mathbb{${c}}`])
   ),
-  "\\dif": "\\operatorname d\\!",
-  "\\pdif": "\\operatorname \\partial\\!",
+  "\\Diff": "\\mathop{}\\!\\mathrm d",
+  "\\PDiff": "\\mathop{}\\!\\partial",
+  "\\text": "\\textsf",
 };
 
 export default mdsvex({
@@ -67,7 +69,7 @@ export default mdsvex({
     type: "toml",
     parse(frontmatter, messages) {
       try {
-        Toml.parse(frontmatter);
+        return Toml.parse(frontmatter);
       } catch (err) {
         messages.push(new VMessage("Failed to parse frontmatter"));
       }
