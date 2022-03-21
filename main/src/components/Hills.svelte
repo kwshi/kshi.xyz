@@ -51,16 +51,30 @@
   let screenWidth = 1;
   let position: number = 1 / 2;
 
+  export let pos: number;
+
   const mouseMove = (e: MouseEvent) => (position = e.clientX / screenWidth);
 </script>
 
 <svelte:window
-  bind:scrollY={scroll}
   bind:innerWidth={screenWidth}
   on:mousemove={mouseMove}
+  bind:scrollY={scroll}
 />
 
-<svg width="100%" height="192" xmlns="http://www.w3.org/2000/svg">
+<div class="clip">
+  <div class="position">
+    <div class="hills">
+      <div class="hill" style={`transform: translate3d(0, ${pos}px,-8rem)`} />
+      <div
+        class="hill"
+        style={`transform: translate3d(8rem, ${pos}px,-8rem)`}
+      />
+    </div>
+  </div>
+</div>
+
+<!--svg width="100%" height="192" xmlns="http://www.w3.org/2000/svg">
   <g transform="matrix(1, 0, 0, -1, 0, 192)">
     {#each peaks as [x, y, z]}
       <g style={`transform: translate(0, ${-scroll * (z / 2 + 1 / 4)}px)`}>
@@ -88,12 +102,47 @@
       </g>
     {/each}
   </g>
-</svg>
-
+</svg-->
 <style lang="postcss">
+  .clip {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //clip: rect(-100%, auto, auto, auto);
+    clip-path: margin-box;
+    z-index: -10;
+  }
+
+  .position {
+    position: absolute;
+    top: 100%;
+  }
+  .hills {
+    position: fixed;
+    transform: translateY(-100%);
+    left: 0;
+    right: 0;
+    z-index: -5;
+    perspective: 24rem;
+
+    .hill {
+      border-style: solid;
+      border-width: 8rem 16rem;
+      border-top-width: 0;
+      border-color: transparent;
+      border-bottom-color: brown;
+      width: 0;
+      height: 0;
+      position: absolute;
+      bottom: 0;
+    }
+  }
+
   svg {
     position: absolute;
-    bottom: 0;
+    //bottom: 0;
     z-index: -10;
 
     .cool {

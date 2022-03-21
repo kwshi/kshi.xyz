@@ -19,5 +19,6 @@
       minmax(2rem, 1fr)
       minmax(32rem, 48rem)
       minmax(16rem, 1fr);
+    background-color: #1d2021;
   }
 </style>
