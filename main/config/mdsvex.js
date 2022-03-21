@@ -61,6 +61,7 @@ export default mdsvex({
   //  Path.dirname(Url.fileURLToPath(import.meta.url)),
   //  "../src/components/Mdsvex.svelte"
   //),
+  highlight: {},
   frontmatter: {
     marker: "+",
     type: "toml",

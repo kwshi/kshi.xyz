@@ -1,3 +1,8 @@
+// vi: ft=scss
+
+// TODO make my own theme, just using provided gruvbox cos it's easier for now
+@import 'prism-themes/themes/prism-gruvbox-dark.min.css';
+
 body {
   @apply m-0 font-sans bg-warmgray-900 text-warmgray-200;
   display: grid;
@@ -71,6 +76,31 @@ main {
   & > article {
     @apply leading-6 flex-grow;
     grid-area: content;
+
+    text-align: justify;
+
+    p,
+    ul {
+      margin: 0.5em 0;
+    }
+
+    ul {
+      padding-left: 2em;
+      ::marker {
+        color: #564;
+      }
+    }
+
+    & > ul {
+      list-style-type: disc;
+      & > ul {
+        list-style-type: square;
+        & > ul {
+          list-style-type: circle;
+        }
+      }
+    }
+
 
     & > :last-child {
       @apply mb-32;
