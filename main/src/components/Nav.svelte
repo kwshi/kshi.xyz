@@ -1,6 +1,7 @@
 <script lang="ts">
   import Loading from "./Loading.svelte";
   import Hills from "./Hills.svelte";
+  import Background from "./Background.svelte";
 
   export let segment: string | null;
 
@@ -10,10 +11,8 @@
 <svelte:window bind:scrollY={scroll} />
 
 <nav>
+  <Background />
   <Loading />
-  <div class="sun-wrapper">
-    <div class="sun" />
-  </div>
   <Hills />
   <a
     href="/"
@@ -42,34 +41,10 @@
     items-end
     bg-fixed z-10;
 
-    background-image: linear-gradient(
-      to bottom,
-      #378 0,
-      #59a 6rem,
-      #9a8 12rem,
-      #b97 16rem,
-      #d77 20rem
-    );
-
     display: grid;
     grid-template-areas: "title small" "menu menu";
     grid-template-rows: 1fr max-content;
     grid-template-columns: max-content 1fr;
-
-    & > .sun-wrapper {
-      @apply absolute w-full h-full overflow-hidden;
-      z-index: -10;
-      mix-blend-mode: overlay;
-      clip-path: margin-box;
-      clip: rect(auto, auto, auto, auto);
-      & > .sun {
-        @apply w-24 h-24 absolute
-          rounded-full right-1/3 top-40;
-        background-color: #f34;
-        position: fixed;
-        z-index: -10;
-      }
-    }
 
     a {
       @apply font-bold;

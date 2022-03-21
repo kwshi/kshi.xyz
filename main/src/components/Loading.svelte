@@ -79,7 +79,7 @@
     w-full
         ease-linear;
 
-    z-index: -20;
+    z-index: -10;
 
     background-image: linear-gradient(to right, #0000, #f65a);
     mix-blend-mode: overlay;

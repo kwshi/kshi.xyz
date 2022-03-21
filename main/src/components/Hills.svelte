@@ -5,6 +5,7 @@
 
   const SLOPE = 3;
 
+  // sum of three uniform random distributions; approximation to a normal
   const rand3 = () => (Math.random() + Math.random() + Math.random()) / 3;
 
   const randTicks = (count: number, spacing: number) => {
@@ -21,6 +22,15 @@
     const w = h * SLOPE;
     return `M ${x - w} -1 l ${w} ${h} l ${w} ${-h} Z`;
   };
+  const glowPath = (x: number, h: number, z: number) => {
+    const w = h * SLOPE;
+    const dx = x - (2 / 3) * screenWidth;
+    const fr = 1 - 1 / Math.sqrt(1 + Math.pow(dx / z, 2));
+    const sgn = Math.sign(dx);
+    return x > (2 / 3) * screenWidth
+      ? `M ${x - w} -1 l ${w} ${h} l ${-w + fr * w} ${-h} Z`
+      : `M ${x - sgn * w} -1 l ${sgn * w} ${h} l ${sgn * w * (fr - 1)} ${-h} Z`;
+  };
 
   let peaks: Peak[] = [];
   let mounted = false;
@@ -35,7 +45,7 @@
   // rgb(192,108,50)
 
   const color = (t: number) =>
-    `rgb(${224 - 192 * t}, ${128 - 108 * t}, ${96 - 50 * t})`;
+    `rgb(${228 - 180 * t}, ${123 - 108 * t}, ${86 - 40 * t})`;
 
   let scroll = 0;
   let screenWidth = 1;
@@ -56,16 +66,24 @@
       <g style={`transform: translate(0, ${-scroll * (z / 2 + 1 / 4)}px)`}>
         <g
           class="cool"
-          style={`transform: translate(${position * z * (100 / 4)}%`}
+          style={`transform: translate(${(position - 1 / 2) * z * (100 / 4)}%`}
         >
-          <path
-            class="hill"
+          <g
+            class="start"
             style={`transform: translate(0, -${
               +!mounted * (1 / 2 + z) * 100
             }%)`}
-            d={path(x * 128, y * 64 + z * 64 + 32)}
-            fill={color(z)}
-          />
+          >
+            <path
+              class="hill"
+              d={path(x * 128, y * 64 + z * 64 + 32)}
+              fill={color(z)}
+            />
+            <path
+              d={glowPath(x * 128, y * 64 + z * 64 + 32, (z + 2) * 128)}
+              fill={color((3 / 4) * z)}
+            />
+          </g>
         </g>
       </g>
     {/each}
@@ -82,7 +100,7 @@
       transition: linear transform 50ms;
     }
 
-    .hill {
+    .start {
       transition: transform 0.5s;
       transform: translate(0, 0);
     }
