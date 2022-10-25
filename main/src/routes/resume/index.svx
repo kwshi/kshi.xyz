@@ -67,7 +67,7 @@ url = "https://gitlab.com/kwshi"
 - Differential Equations[^ex]
 - Discrete Math[^ex]
 - Real Analysis I, II
-- Measure Theory (graduate-level)
+- Measure Theory
 - Complex Analysis
 - Non-linear Big Data Analytics (summer)
 
@@ -77,12 +77,13 @@ url = "https://gitlab.com/kwshi"
 - Quantum Mechanics
 - Quantum Information
 - Electromagnetic Theory & Optics[^ex]
-- Electromagnetic Fields[^ip]
+- Electromagnetic Fields
 
 [^ex]: qualified for exemption
-[^ip]: in progress
 
 # Academic achievements
+
+- *Chavin Prize* in mathematical writing, Harvey Mudd College (2022)
 
 - *Courtney S. Coleman Prize in Mathematics*, Harvey Mudd College (2019)
 
@@ -108,7 +109,12 @@ url = "https://gitlab.com/kwshi"
   sum-of-divisors function*][prbtp2].  Journal of Number Theory 208: 400--417
   (2020).
 
+- Shi, Kye. [*Games for One, Games for Two: Computationally Complex Fun for
+  Polynomial-Hierarchical Families*][ph-thesis]. HMC Senior Theses 259 (2022).
+
 [prbtp2]: https://arxiv.org/abs/1906.05927
+
+[ph-thesis]: https://scholarship.claremont.edu/hmc_theses/259/
 
 # Teaching
 
@@ -119,8 +125,9 @@ url = "https://gitlab.com/kwshi"
   discrete math, and 2-week Branch curricula in [origami][origami-wiki]
   [mathematics][origametry] and in persistent homology
 
-- Led hour-long exploration on reductions between Sudoku, Exact Cover, and
-  Graph Coloring
+- Led math-circle-style activities on:
+  - Reductions between Sudoku, Exact Cover, and Graph Coloring
+  - The egg-drop problem
 
 - Designed and taught one-week, "bite-sized" courses on:
 
