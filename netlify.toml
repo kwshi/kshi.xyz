@@ -2,5 +2,5 @@
 base = 'astro'
 
 [build.environment]
-NETLIFY_USE_YARN = false
-NETLIFY_USE_PNPM = true
+NETLIFY_USE_YARN = 'false'
+NETLIFY_USE_PNPM = 'true'
