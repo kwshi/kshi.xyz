@@ -1,0 +1,87 @@
+---
+type Hill = { position: number; size: number; depth: number };
+
+const generateHills = (): readonly Readonly<Hill>[] => {
+  const hills: Readonly<Hill>[] = [];
+  for (let i = 0; i < 16; ++i)
+    hills.push({
+      position: 3 * Math.random() - 1,
+      size: Math.random(),
+      depth: Math.random(),
+    });
+  hills.sort((a, b) => b.depth - a.depth);
+  return hills;
+};
+
+const hills = generateHills();
+---
+
+<div class="scene">
+  <svg>
+    <defs>
+      <radialGradient id="sun">
+        <stop offset="0" stop-color="#fff9d2"></stop>
+        <stop offset="100%" stop-color="#fff4bc"></stop>
+      </radialGradient>
+    </defs>
+    <circle class="sun"></circle>
+    {
+      hills.map((hill) => (
+        <rect
+          class="mountain"
+          style={{
+            "--hill-position": hill.position,
+            "--hill-size": hill.size,
+            "--hill-depth": hill.depth,
+          }}
+        />
+      ))
+    }
+  </svg>
+</div>
+
+<style>
+  .scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+
+    background-image: linear-gradient(to bottom, #a4eae5, #c4fae5 8rem);
+  }
+
+  svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+  }
+
+  .sun {
+    r: 2rem;
+    cx: calc(200% / 3);
+    cy: 5rem;
+    fill: url(#sun);
+  }
+
+  .mountain {
+    --hill-unit: 3rem;
+    --hill-aspect: 2;
+
+    y: 100%;
+    width: var(--hill-unit);
+    height: var(--hill-unit);
+
+    transform: scaleX(var(--hill-aspect))
+      translateX(
+        calc(
+          var(--hill-position) * 24rem + var(--banner-parallax) *
+            (1 - var(--hill-depth)) * 8rem - 50%
+        )
+      )
+      rotate(45deg);
+
+    fill: color-mix(in hsl, #c4eadf calc(var(--hill-depth) * 100%), white);
+
+    transition: transform 50ms;
+  }
+</style>

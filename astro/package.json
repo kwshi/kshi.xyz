@@ -1,0 +1,29 @@
+{
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^1.1.0",
+    "@astrojs/svelte": "^4.0.2",
+    "astro": "^3.1.1",
+    "astro-feather": "^1.0.0",
+    "autoprefixer": "^10.4.16",
+    "feather-icons": "^4.29.1",
+    "postcss-comment": "^2.0.0",
+    "postcss-nesting": "^12.0.1",
+    "svelte": "^4.0.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@types/feather-icons": "^4.29.2",
+    "prettier-plugin-astro": "^0.12.0",
+    "prettier-plugin-svelte": "^3.0.3"
+  }
+}

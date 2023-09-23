@@ -1,0 +1,39 @@
+---
+import Hills from "$component/background/Hills.svelte";
+---
+
+<!--script>
+  class Background extends HTMLElement {
+    stuff: HTMLElement;
+
+    constructor() {
+      super();
+
+      const onMouseMove = (event: MouseEvent) =>
+        this.setParallax(event.clientX / window.innerWidth);
+
+      const onOrientation = (event: DeviceOrientationEvent) =>
+        this.setParallax((event.gamma ?? 0) / 180 + 1 / 2);
+
+      const onOrientationInitial = (event: DeviceOrientationEvent) => {
+        window.removeEventListener("mousemove", onMouseMove);
+        window.removeEventListener("deviceorientation", onOrientationInitial);
+        window.addEventListener("deviceorientation", onOrientation);
+        onOrientation(event);
+      };
+
+      window.addEventListener("mousemove", onMouseMove);
+      window.addEventListener("deviceorientation", onOrientationInitial);
+    }
+
+    setParallax(parallax: number) {
+      this.style.setProperty("--background-parallax", `${parallax}`);
+    }
+  }
+
+  customElements.define("ks-background", Background);
+</script--><!--ks-background-->
+<Hills client:load />
+<!--/ks-background-->
+
+<style></style>

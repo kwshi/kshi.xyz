@@ -1,0 +1,53 @@
+---
+type Props = {
+  title: string;
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  @font-face {
+    font-family: "Ysabeau";
+    src: url("/font/ysabeau/fonts/googlefonts/variable/Ysabeau[wght].ttf");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "YsabeauOffice";
+    src: url("/font/ysabeau/fonts/googlefonts/variable/YsabeauOffice[wght].ttf");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "YsabeauSC";
+    src: url("/font/ysabeau/fonts/googlefonts/variable/YsabeauSC[wght].ttf");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "YsabeauInfant";
+    src: url("/font/ysabeau/fonts/googlefonts/variable/YsabeauInfant[wght].ttf");
+    font-style: normal;
+    font-display: swap;
+  }
+
+  body {
+    font-family: "YsabeauOffice", sans-serif;
+    margin: 0;
+  }
+</style>
