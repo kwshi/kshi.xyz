@@ -18,14 +18,22 @@ import Feather from "$component/Feather.astro";
 </Html>
 
 <style>
-  header {
+  header,
+  button,
+  h1 {
     position: relative;
+  }
+
+  header {
+    --color-header-top: #0dd;
+    --color-header-bottom: #324;
+
     display: flex;
     align-items: flex-start;
+    margin-bottom: 1rem;
   }
 
   button {
-    position: relative;
     background: none;
     border: none;
     outline: none;
@@ -34,23 +42,30 @@ import Feather from "$component/Feather.astro";
     line-height: 1rem;
     padding: 0.75rem;
 
-    color: color-mix(in srgb, #0ee, #435);
+    color: color-mix(
+      in srgb,
+      var(--color-header-top),
+      var(--color-header-bottom)
+    );
   }
 
   h1 {
-    position: relative;
-    font-size: 1.5rem;
+    font-size: calc(5rem / 3);
     margin: 0;
     padding: 1rem 0;
-    line-height: 1rem;
+    line-height: 1em;
     user-select: none;
 
-    font-family: "YsabeauInfant";
+    font-family: "Ysabeau Infant Variable";
     font-weight: 600;
-
-    background-image: linear-gradient(to bottom, #0ee, #435);
-    background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    background-image: linear-gradient(
+      to bottom,
+      var(--color-header-top),
+      var(--color-header-bottom)
+    );
+    background-clip: text;
   }
 
   @media (min-width: 64rem) {
@@ -67,5 +82,8 @@ import Feather from "$component/Feather.astro";
     padding: 0 1rem;
     margin: 0 auto;
     max-width: 48rem;
+
+    font-family: "Ysabeau Office Variable", sans-serif;
+    font-size: calc(7rem / 6);
   }
 </style>

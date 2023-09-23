@@ -11,6 +11,18 @@ dependencies:
   '@astrojs/svelte':
     specifier: ^4.0.2
     version: 4.0.2(astro@3.1.2)(svelte@4.2.1)(typescript@5.2.2)(vite@4.4.9)
+  '@fontsource-variable/ysabeau-infant':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@fontsource-variable/ysabeau-office':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@fontsource/ysabeau-infant':
+    specifier: ^5.0.3
+    version: 5.0.3
+  '@fontsource/ysabeau-office':
+    specifier: ^5.0.3
+    version: 5.0.3
   astro:
     specifier: ^3.1.2
     version: 3.1.2
@@ -789,6 +801,22 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/ysabeau-infant@5.0.3:
+    resolution: {integrity: sha512-5X/a5D0hjZ43qk7V67D8oLfnAL3LnkW7NN27RQ/C56ngHMM1eXZWbXi5/xI1pyQNey2Xz+wmsbq/tHpP0lZOHw==}
+    dev: false
+
+  /@fontsource-variable/ysabeau-office@5.0.3:
+    resolution: {integrity: sha512-hEd927Eq3HSkffb+/7bdCSGQBJX/RD58wsTwTxa2ixXXSg5Y6xOW9nXjLq6rx2GvgJRob8Celp0Abrgt8pnMHA==}
+    dev: false
+
+  /@fontsource/ysabeau-infant@5.0.3:
+    resolution: {integrity: sha512-rTOUC6SjFhhwGrwVv8Jh7LUUxV1edcv/3u/+zvGieQJ7t6xsI1D7mPZO5PWHK383u3bchRAQzd2IMUYraqpecg==}
+    dev: false
+
+  /@fontsource/ysabeau-office@5.0.3:
+    resolution: {integrity: sha512-vJiSFjfZC9cEi+svdLI0UnV9Se9dHQbdBmxeQM14aOVqDE+nt0vUYSh4929NyqC+sgxdFG4YlVmEaPHwBylvOw==}
+    dev: false
 
   /@jridgewell/gen-mapping@0.3.3:
     resolution: {integrity: sha512-HLhSWOLRi875zjjMG/r+Nv0oCW8umGb0BgEhyX3dDX3egwZtB8PqLnjz3yedt8R5StBrzcg4aBpnh8UA9D1BoQ==}
