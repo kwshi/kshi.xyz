@@ -10,7 +10,20 @@ import Feather from "$component/Feather.astro";
     <button>
       <Feather icon="menu" />
     </button>
-    <h1>kye’s shinanigans</h1>
+    <h1><a href="/">kye’s shinanigans</a></h1>
+    <nav>
+      <ul>
+        <li>
+          <a href="/">home</a>
+        </li>
+        <li>
+          <a href="/notes">notes for nerds</a>
+        </li>
+        <li><a href="/art">artsy stuff</a></li>
+        <li><a href="/photos">photos</a></li>
+        <li><a href="/toys">toys</a></li>
+      </ul>
+    </nav>
   </header>
   <main>
     <slot />
@@ -29,8 +42,47 @@ import Feather from "$component/Feather.astro";
     --color-header-bottom: #324;
 
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 1rem;
+
+    font-family: "Ysabeau Infant Variable";
+  }
+
+  nav {
+    font-size: calc(4rem / 3);
+    margin-left: auto;
+    margin-right: 2rem;
+    font-weight: 500;
+    --color-nav: color-mix(
+      in srgb,
+      var(--color-header-top) 25%,
+      var(--color-header-bottom)
+    );
+    color: var(--color-nav);
+  }
+
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li:not(:last-child) {
+    &::after {
+      content: "⋅";
+      margin: calc(1em / 2);
+      opacity: calc(1 / 2);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    transition: 50ms text-shadow;
+    &:hover {
+      text-shadow: 0 0 calc(1em / 16) var(--color-nav);
+    }
   }
 
   button {
@@ -53,10 +105,8 @@ import Feather from "$component/Feather.astro";
     font-size: calc(5rem / 3);
     margin: 0;
     padding: 1rem 0;
-    line-height: 1em;
     user-select: none;
 
-    font-family: "Ysabeau Infant Variable";
     font-weight: 600;
     -webkit-text-fill-color: transparent;
 
@@ -73,13 +123,13 @@ import Feather from "$component/Feather.astro";
       display: none;
     }
     h1 {
-      margin-left: 1rem;
+      margin-left: 2rem;
     }
   }
 
   main {
     position: relative;
-    padding: 0 1rem;
+    padding: 0 1rem 4rem 1rem;
     margin: 0 auto;
     max-width: 48rem;
 

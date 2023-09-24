@@ -1,6 +1,10 @@
 ---
 import "@fontsource-variable/ysabeau-office";
+import "@fontsource-variable/ysabeau-office/wght-italic.css";
 import "@fontsource-variable/ysabeau-infant";
+import "katex/dist/katex.min.css";
+
+import { ViewTransitions } from "astro:transitions";
 
 type Props = {
   title: string;
@@ -14,14 +18,14 @@ type Props = {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{Astro.props.title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
   </body>
 </html>
-
-<style>
-  body {
-    margin: 0;
-  }
-</style>

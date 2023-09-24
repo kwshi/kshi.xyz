@@ -1,24 +1,17 @@
 <script lang="ts">
-  import { spring } from "svelte/motion";
+  import * as Motion from "svelte/motion";
+  import * as Random from "$lib/random";
 
-  type Hill = { position: number; size: number; depth: number; aspect: number };
-
-  // https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
-  const randomNormal = () => {
-    // Math.random() ∈ [0,1)
-    const r = Math.sqrt(-2 * Math.log(1 - Math.random()));
-    const θ = 2 * Math.PI * Math.random();
-    return r * Math.cos(θ);
-  };
+  type Hill = { position: number; size: number; depth: number };
 
   const generateHills = (count: number): readonly Readonly<Hill>[] => {
     const hills: Readonly<Hill>[] = [];
+    const order = Random.permutation(count);
     for (let i = 0; i < count; ++i)
       hills.push({
-        position: i - (count - 1) / 2 + randomNormal() / 2,
+        position: i - (count - 1) / 2 + Random.normal() / 2,
         size: Math.random(),
-        depth: Math.random(),
-        aspect: Math.random() + 2,
+        depth: order[i]! / (count - 1),
       });
     hills.sort((a, b) => b.depth - a.depth);
     return hills;
@@ -26,14 +19,16 @@
 
   const hills = generateHills(6);
 
+  const hillAspect = 2;
   const hillSpacing = 16 * 12; // ~12rem
   const parallaxSize = 16 * 8; // ~8rem
+  const sunOffsetScale = 16 * 32;
 
   let viewportWidth = 1;
   let viewportHeight = 1;
   let orientationEnabled = false;
 
-  const parallax = spring(0, { stiffness: 0.1, damping: 0.75 });
+  const parallax = Motion.spring(0, { stiffness: 0.1, damping: 0.75 });
 </script>
 
 <svelte:window
@@ -66,41 +61,29 @@
         viewportWidth / 2 +
         hill.position * hillSpacing +
         $parallax * (2 - hill.depth) * parallaxSize}
-      {@const sunOffset = positionScaled / viewportWidth - 2 / 3}
+      {@const sunOffset =
+        (positionScaled - (2 / 3) * viewportWidth) / sunOffsetScale}
       {@const sunProportion =
         1 / Math.sqrt(1 + Math.pow((4 * sunOffset) / (2 - hill.depth), 2))}
+      {@const baseWidth = viewportHeight * hillAspect}
+      {@const rayWidth = baseWidth * sunProportion}
+      {@const sunSign = Math.sign(sunOffset)}
       {@const points = [
         positionScaled,
         0,
-        viewportWidth,
-        (viewportWidth - positionScaled) / hill.aspect,
-        viewportWidth,
+        positionScaled + baseWidth - 1,
         viewportHeight,
-        0,
+        positionScaled - baseWidth + 1,
         viewportHeight,
-        0,
-        positionScaled / hill.aspect,
       ]}
-      {@const sunPoints =
-        sunOffset < 0
-          ? [
-              positionScaled,
-              0,
-              viewportWidth,
-              // todo sign
-              (viewportWidth - positionScaled) / hill.aspect,
-              viewportWidth,
-              (viewportWidth - positionScaled) / hill.aspect / sunProportion,
-            ]
-          : [
-              positionScaled,
-              0,
-              0,
-              // todo sign
-              positionScaled / hill.aspect,
-              0,
-              positionScaled / hill.aspect / sunProportion,
-            ]}
+      {@const sunPoints = [
+        positionScaled,
+        0,
+        positionScaled - sunSign * baseWidth,
+        viewportHeight,
+        positionScaled - sunSign * rayWidth,
+        viewportHeight,
+      ]}
       <g
         class="hill"
         style="--hill-position: {hill.position}; --hill-depth:{hill.depth}; --hill-size:{hill.size}"
@@ -126,9 +109,9 @@
 
     --color-hill-light: #fff0de;
     --color-hill-front: #eee8db;
-    --color-hill-back: #84c0c7;
+    --color-hill-back: #97c0c9;
 
-    position: absolute;
+    position: fixed;
     inset: 0;
     overflow: hidden;
 
