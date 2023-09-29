@@ -1,0 +1,14 @@
+Recall that the standard Conjugate Gradient algorithm can be described as
+
+   - $r₀ = b-Ax₀$, $p₀=r₀$,
+   - for $i∈\{0,1,2,\dotsc\}$:
+     - $αᵢ = (rᵢ^𝖳 rᵢ)/(pᵢ^𝖳 A pᵢ)$
+     - $xᵢ₊₁ = xᵢ + αᵢ pᵢ$
+     - $rᵢ₊₁ = rᵢ - αᵢ A pᵢ$
+     - $βᵢ = (rᵢ₊₁^𝖳 rᵢ₊₁) / (rᵢ^𝖳 rᵢ)$
+     - $pᵢ₊₁ = rᵢ₊₁ + βᵢpᵢ$
+
+   Show that CG for $Ax=b$ starting with $x₀$ is same as applying the method to
+   $Ay=r₀=b-Ax₀$ starting with $y₀=0$, in the sense of producing the same
+   iterates.
+

@@ -1,0 +1,24 @@
+---
+import type { InferGetStaticPropsType, InferGetStaticParamsType } from "astro";
+import { getCollection, getEntry } from "astro:content";
+
+import Article from "$layout/Article.astro";
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+
+export const getStaticPaths = async () => {
+  const collection = await getCollection("notes");
+  return collection.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+};
+const entry = Astro.props.entry;
+const { Content } = await entry.render();
+console.log("hi");
+---
+
+<Article title="hooo">
+  <Content />
+</Article>

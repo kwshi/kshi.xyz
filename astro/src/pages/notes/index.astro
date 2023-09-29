@@ -1,5 +1,13 @@
 ---
+import { getCollection, getEntry } from "astro:content";
+
+const collection = await getCollection("notes");
+
 import Page from "$layout/Page.astro";
 ---
 
-<Page />
+<Page>
+  <ul>
+    {collection.map((entry) => <li>{entry.slug}</li>)}
+  </ul>
+</Page>
