@@ -1,0 +1,36 @@
+---
+export const enum ItemTag {
+  statement,
+  block,
+}
+export type ItemData = {
+  readonly [ItemTag.statement]: string;
+  readonly [ItemTag.block]: {
+    readonly type: string;
+    readonly name?: string;
+    readonly parameters?: readonly string[];
+    readonly body: readonly Item[];
+  };
+};
+export type Item = {
+  [Tag in ItemTag]: { tag: Tag; data: ItemData[ItemTag] };
+}[ItemTag];
+
+export const block = (
+  label: string,
+  props: { readonly name?: string; readonly parameters?: readonly string[] },
+  body: readonly Item[],
+) => ({
+  tag: ItemTag.block,
+  ...props,
+  data: { label, body },
+});
+
+export const func = (
+  name: string,
+  parameters: readonly string[],
+  body: readonly Item[],
+) => block("function", { name, parameters }, body);
+
+export const state = (s: string) => ({ tag: ItemTag.statement, data: s });
+---
