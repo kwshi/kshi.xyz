@@ -3,17 +3,25 @@
   import Hills from "./Hills.svelte";
   import Background from "./Background.svelte";
 
+  import { onMount } from "svelte";
+
   export let segment: string | null;
 
   let scroll = 0;
+  let nav: HTMLElement | undefined;
+  let pos = 0;
+
+  const onScroll = () => {
+    pos = nav!.getBoundingClientRect().top;
+  };
 </script>
 
-<svelte:window bind:scrollY={scroll} />
+<svelte:window bind:scrollY={scroll} on:scroll={onScroll} />
 
-<nav>
+<nav bind:this={nav}>
   <Background />
   <Loading />
-  <Hills />
+  <Hills {pos} />
   <a
     href="/"
     title="Ha, get it?  It&rsquo;s funny because my last name is &ldquo;Shi&rdquo;."
@@ -34,12 +42,15 @@
 
 <style lang="postcss">
   nav {
-    @apply sticky -top-64 pt-64
-    text-warmgray-100
+    @apply text-warmgray-100
     transition-colors
-    overflow-x-hidden
-    items-end
-    bg-fixed z-10;
+    items-end;
+    z-index: 10;
+
+    position: sticky;
+    top: -16rem;
+    padding-top: 16rem;
+    //overflow: hidden;
 
     display: grid;
     grid-template-areas: "title small" "menu menu";

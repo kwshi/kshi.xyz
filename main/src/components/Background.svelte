@@ -12,6 +12,7 @@
     left: 0;
     bottom: 0;
     right: 0;
+    background-attachment: fixed;
     background-image: linear-gradient(
       to bottom,
       #378 0,
